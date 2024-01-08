@@ -26,102 +26,182 @@ const videoImagesDataCopy = JSON.parse(
     JSON.stringify(videoImagesData)
 ).reverse()
 
-const videoBlock = document.querySelector('.videos-block')
-const imagesContainers = document.querySelectorAll('ul')
-const imagesOffset = 5
-const imageWidth = 398
-const imagesContainerWidth =
-    videoImagesData.length * imageWidth + imagesOffset * imageWidth
+document.addEventListener('DOMContentLoaded', function () {
+    const videoBlock = document.querySelector('.videos-block')
+    const imagesContainers = document.querySelectorAll('ul')
+    const overflowDisplay = document.querySelector('.overflow')
+    const videoContainer = document.querySelector('.video-watch')
+    const imagesOffset = 5
+    const imageWidth = 398
+    const imagesContainerWidth =
+        videoImagesData.length * imageWidth + imagesOffset * imageWidth
 
-const moveSpeed = 0.8,
-    hoverMoveSpeed = 0.5
+    const moveSpeed = 0.85,
+        hoverMoveSpeed = 0.6
 
-let positionFirstContainer = 0,
-    positionSecondContainer = -150
+    let positionFirstContainer = 0,
+        positionSecondContainer = -150
 
-let pixelsMoveFirst = moveSpeed,
-    pixelsMoveSecond = moveSpeed * 1.3
+    let moveContainers = null
 
-imagesContainers.forEach(
-    (container) => (container.style.width = imagesContainerWidth + 'px')
-)
+    let pixelsMoveFirst = moveSpeed,
+        pixelsMoveSecond = moveSpeed * 1.3
 
-const createImageElements = (images, container) => {
-    return [...images, ...images.slice(0, imagesOffset)].map((image) => {
-        const imageElement = document.createElement('li')
-        const hoverElement = document.createElement('div')
-        const itemButton = document.createElement('div')
-        const playIcon = document.createElement('img')
+    imagesContainers.forEach(
+        (container) => (container.style.width = imagesContainerWidth + 'px')
+    )
 
-        imageElement.classList.add('images-line_item')
-        hoverElement.classList.add('image-line_item_hover')
-        playIcon.src = './icons/play.svg'
-        playIcon.alt = 'play'
-        itemButton.classList.add('image-line_item_button')
-        itemButton.textContent = 'Stream now'
-        itemButton.append(playIcon)
+    var observer = new IntersectionObserver(
+        function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    moveContainers = startMoveContainers()
+                    imagesContainers[1].style.transform = `translateX(${positionSecondContainer}px)`
+                } else {
+                    clearInterval(moveContainers)
+                }
+            })
+        },
+        { threshold: 0.7 }
+    )
 
-        imageElement.appendChild(hoverElement)
-        imageElement.appendChild(itemButton)
+    observer.observe(videoBlock)
 
-        imageElement.style.backgroundImage = `url(${image})`
-        container.style.transform = `translateX(${positionFirstContainer}px)`
-        return imageElement
+    const closeVideo = () => {
+        videoContainer.classList.remove('video-watch_active')
+        videoContainer.querySelector('.images-line_item')?.remove()
+        videoContainer.querySelector('.video-watch_play')?.remove()
+        overflowDisplay.style.display = 'none'
+        overflowDisplay.style.opacity = '0'
+        moveContainers = startMoveContainers()
+    }
+
+    const showOverflow = () => {
+        overflowDisplay.style.display = 'block'
+        setTimeout(() => {
+            overflowDisplay.style.opacity = '0.999'
+        })
+    }
+
+    const openVideo = (
+        event,
+        videoSrc = 'https://www.youtube.com/embed/bd-KpqIyLUk'
+    ) => {
+        clearInterval(moveContainers)
+
+        setTimeout(() => {
+            const iframe = document.createElement('iframe')
+            iframe.src = videoSrc
+            iframe.setAttribute('autoplay', 'true')
+            iframe.classList.add('video-watch_play')
+            videoContainer.appendChild(iframe)
+        }, 1000)
+
+        const parentRect =
+            event.currentTarget.parentElement.getBoundingClientRect()
+
+        const imageCopy = event.currentTarget.parentElement.cloneNode(true)
+        imageCopy.style.margin = '0'
+        imageCopy.classList.add('.image-line_item_active')
+        imageCopy.querySelector('.image-line_item_button').remove()
+
+        videoContainer.classList.add('video-watch_active')
+        videoContainer.style.top = `${parentRect.top}px`
+        videoContainer.style.left = `${parentRect.left}px`
+        videoContainer.append(imageCopy)
+        showOverflow()
+        setTimeout(() => {
+            videoContainer.style.top = `calc(50% - 212px)`
+            videoContainer.style.left = `calc(50% - 378px)`
+        })
+    }
+
+    const createImageElements = (images, container) => {
+        return [...images, ...images.slice(0, imagesOffset)].map((image) => {
+            const imageElement = document.createElement('li')
+            const hoverElement = document.createElement('div')
+            const itemButton = document.createElement('div')
+            const playIcon = document.createElement('img')
+
+            imageElement.classList.add('images-line_item')
+            hoverElement.classList.add('image-line_item_hover')
+            playIcon.src = './icons/play.svg'
+            playIcon.alt = 'play'
+            itemButton.classList.add('image-line_item_button')
+            itemButton.textContent = 'Stream now'
+            itemButton.append(playIcon)
+            itemButton.addEventListener('click', openVideo)
+            imageElement.appendChild(hoverElement)
+            imageElement.appendChild(itemButton)
+
+            imageElement.style.backgroundImage = `url(${image})`
+            container.style.transform = `translateX(${positionFirstContainer}px)`
+            return imageElement
+        })
+    }
+
+    const imagesFirst = createImageElements(
+        videoImagesData,
+        imagesContainers[0]
+    )
+
+    imagesFirst.forEach((imageElement) => {
+        imagesContainers[0].appendChild(imageElement)
+        imageElement.addEventListener('mouseenter', () => {
+            imageElement.classList.add('images-line_item_active')
+        })
+        imageElement.addEventListener('mouseleave', () => {
+            imageElement.classList.remove('images-line_item_active')
+        })
     })
-}
 
-const imagesFirst = createImageElements(videoImagesData, imagesContainers[0])
+    const imagesSecond = createImageElements(
+        videoImagesDataCopy,
+        imagesContainers[1]
+    )
 
-imagesFirst.forEach((imageElement) => {
-    imagesContainers[0].appendChild(imageElement)
-    imageElement.addEventListener('mouseenter', () => {
-        imageElement.classList.add('images-line_item_active')
+    imagesSecond.forEach((imageElement) => {
+        imagesContainers[1].appendChild(imageElement)
+        imagesContainers[1].style.transform = `translateX(${positionSecondContainer}px)`
+        imageElement.addEventListener('mouseenter', () => {
+            imageElement.classList.add('images-line_item_active')
+        })
+        imageElement.addEventListener('mouseleave', () => {
+            imageElement.classList.remove('images-line_item_active')
+        })
     })
-    imageElement.addEventListener('mouseleave', () => {
-        imageElement.classList.remove('images-line_item_active')
+
+    function startMoveContainers() {
+        const moveContainers = setInterval(() => {
+            Math.abs(positionFirstContainer) >
+            imagesContainerWidth - imagesOffset * imageWidth
+                ? (positionFirstContainer = 0)
+                : (positionFirstContainer -= pixelsMoveFirst)
+
+            Math.abs(positionSecondContainer) >
+            imagesContainerWidth - imagesOffset * imageWidth
+                ? (positionSecondContainer = 0)
+                : (positionSecondContainer -= pixelsMoveSecond)
+
+            imagesContainers[0].style.transform = `translateX(${positionFirstContainer}px)`
+            imagesContainers[1].style.transform = `translateX(${positionSecondContainer}px)`
+        }, 15)
+        return moveContainers
+    }
+
+    imagesContainers[0].addEventListener('mouseenter', () => {
+        pixelsMoveFirst = hoverMoveSpeed
     })
-})
-
-const imagesSecond = createImageElements(
-    videoImagesDataCopy,
-    imagesContainers[1]
-)
-
-imagesSecond.forEach((imageElement) => {
-    imagesContainers[1].appendChild(imageElement)
-    imageElement.addEventListener('mouseenter', () => {
-        imageElement.classList.add('images-line_item_active')
+    imagesContainers[0].addEventListener('mouseleave', () => {
+        pixelsMoveFirst = moveSpeed
     })
-    imageElement.addEventListener('mouseleave', () => {
-        imageElement.classList.remove('images-line_item_active')
+
+    imagesContainers[1].addEventListener('mouseenter', () => {
+        pixelsMoveSecond = hoverMoveSpeed
     })
-})
+    imagesContainers[1].addEventListener('mouseleave', () => {
+        pixelsMoveSecond = moveSpeed * 1.3
+    })
 
-setInterval(() => {
-    Math.abs(positionFirstContainer) >
-    imagesContainerWidth - imagesOffset * imageWidth
-        ? (positionFirstContainer = 0)
-        : (positionFirstContainer -= pixelsMoveFirst)
-
-    Math.abs(positionSecondContainer) >
-    imagesContainerWidth - imagesOffset * imageWidth
-        ? (positionSecondContainer = 0)
-        : (positionSecondContainer -= pixelsMoveSecond)
-
-    imagesContainers[0].style.transform = `translateX(${positionFirstContainer}px)`
-    imagesContainers[1].style.transform = `translateX(${positionSecondContainer}px)`
-}, 15)
-
-imagesContainers[0].addEventListener('mouseenter', () => {
-    pixelsMoveFirst = hoverMoveSpeed
-})
-imagesContainers[0].addEventListener('mouseleave', () => {
-    pixelsMoveFirst = moveSpeed
-})
-
-imagesContainers[1].addEventListener('mouseenter', () => {
-    pixelsMoveSecond = hoverMoveSpeed
-})
-imagesContainers[1].addEventListener('mouseleave', () => {
-    pixelsMoveSecond = moveSpeed * 1.3
+    overflowDisplay.addEventListener('click', closeVideo)
 })
