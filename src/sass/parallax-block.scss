@@ -1,0 +1,111 @@
+.parallax-block {
+    height: 200vh;
+    position: relative;
+    .images-container {
+        width: 1400px;
+        height: 350px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        &_first {
+            top: 50px;
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 0px;
+                    left: 50px;
+                }
+                &:nth-child(2) {
+                    top: 100px;
+                    left: 600px;
+                }
+                &:nth-child(3) {
+                    top: 300px;
+                    left: 0px;
+                }
+            }
+        }
+        &_second {
+            top: 70px;
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 170px;
+                    left: 0px;
+                }
+                &:nth-child(2) {
+                    top: 0px;
+                    left: 200px;
+                }
+                &:nth-child(3) {
+                    top: 250px;
+                    left: 430px;
+                }
+                &:nth-child(4) {
+                    top: 300px;
+                    left: 750px;
+                }
+                &:nth-child(5) {
+                    top: 50px;
+                    left: 880px;
+                }
+                &:nth-child(6) {
+                    top: 230px;
+                    left: 1100px;
+                }
+                &:nth-child(7) {
+                    top: 0px;
+                    left: 1260px;
+                }
+                &:nth-child(8) {
+                    top: 500px;
+                    left: 0px;
+                }
+                &:nth-child(9) {
+                    top: 500px;
+                    left: 1250px;
+                }
+            }
+        }
+        &_third {
+            top: 420px;
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 0px;
+                    left: 160px;
+                }
+                &:nth-child(2) {
+                    top: 130px;
+                    left: 300px;
+                }
+                &:nth-child(3) {
+                    top: 150px;
+                    left: 570px;
+                }
+                &:nth-child(4) {
+                    top: 150px;
+                    left: 950px;
+                }
+            }
+        }
+    }
+}
+.parallax-image {
+    position: absolute;
+}
+.image {
+    &_small {
+        width: 70px;
+        height: 70px;
+    }
+    &_medium {
+        width: 100px;
+        height: 100px;
+    }
+    &_large {
+        width: 140px;
+        height: 140px;
+    }
+    &_xl {
+        width: 180px;
+        height: 180px;
+    }
+}

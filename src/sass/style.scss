@@ -1,10 +1,14 @@
+@import './parallax-block.scss';
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
+
 .added-block {
     height: 100vh;
+    border: solid 3px black;
 }
 .videos-block {
     margin-top: 100px;
@@ -144,6 +148,7 @@
     background-color: black;
     overflow: hidden;
     transition: left 1s ease-in-out, top 1s ease-in-out;
+    z-index: 10;
     &_active {
         display: block;
         animation: 1s open-video forwards;

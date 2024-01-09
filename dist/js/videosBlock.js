@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
         },
-        { threshold: 0.5 }
+        { threshold: 0.01 }
     )
 
     observer.observe(videoBlock)
@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = 'auto'
         overflowDisplay.style.display = 'none'
         overflowDisplay.style.opacity = '0'
-        overflowDisplay.removeEventListener('click', closeVideo)
     }
 
     const showOverflow = () => {
@@ -91,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
             overflowDisplay.style.opacity = '0.999'
         })
-        overflowDisplay.addEventListener('click', closeVideo)
     }
 
     const closeVideo = () => {
@@ -123,10 +121,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         openVideoTimeout = setTimeout(() => {
             const iframe = document.createElement('iframe')
-            iframe.src = videoSrc + '?autoplay=1'
+            iframe.src = videoSrc
+            iframe.setAttribute('autoplay', 'true')
             iframe.classList.add('video-watch_play')
             videoContainer.appendChild(iframe)
-        }, 800)
+        }, 1000)
 
         const parentRect =
             event.currentTarget.parentElement.getBoundingClientRect()
@@ -234,4 +233,5 @@ document.addEventListener('DOMContentLoaded', function () {
     imagesContainers[1].addEventListener('mouseleave', () => {
         pixelsMoveSecond = moveSpeed * 1.3
     })
+    overflowDisplay.addEventListener('click', closeVideo)
 })
