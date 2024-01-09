@@ -42,7 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let positionFirstContainer = 0,
         positionSecondContainer = -150
 
-    let moveContainers = null
+    let moveContainersInterval = null,
+        isMoveContainersActive = false
+
+    let isOpenedVideo = false,
+        openVideoTimeout = null,
+        changeSizeTimeout = null
 
     let pixelsMoveFirst = moveSpeed,
         pixelsMoveSecond = moveSpeed * 1.3
@@ -51,51 +56,77 @@ document.addEventListener('DOMContentLoaded', function () {
         (container) => (container.style.width = imagesContainerWidth + 'px')
     )
 
-    var observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
         function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
-                    moveContainers = startMoveContainers()
+                    if (!isMoveContainersActive) {
+                        moveContainersInterval = startMoveContainersInterval()
+                        isMoveContainersActive = true
+                    }
                     imagesContainers[1].style.transform = `translateX(${positionSecondContainer}px)`
                 } else {
-                    clearInterval(moveContainers)
+                    if (isMoveContainersActive) {
+                        clearInterval(moveContainersInterval)
+                        isMoveContainersActive = false
+                    }
                 }
             })
         },
-        { threshold: 0.7 }
+        { threshold: 0.5 }
     )
 
     observer.observe(videoBlock)
 
-    const closeVideo = () => {
-        videoContainer.classList.remove('video-watch_active')
-        videoContainer.querySelector('.images-line_item')?.remove()
-        videoContainer.querySelector('.video-watch_play')?.remove()
+    const closeOverflow = () => {
+        document.body.style.overflow = 'auto'
         overflowDisplay.style.display = 'none'
         overflowDisplay.style.opacity = '0'
-        moveContainers = startMoveContainers()
+        overflowDisplay.removeEventListener('click', closeVideo)
     }
 
     const showOverflow = () => {
+        document.body.style.overflow = 'hidden'
         overflowDisplay.style.display = 'block'
         setTimeout(() => {
             overflowDisplay.style.opacity = '0.999'
         })
+        overflowDisplay.addEventListener('click', closeVideo)
+    }
+
+    const closeVideo = () => {
+        if (isOpenedVideo) {
+            clearTimeout(openVideoTimeout)
+            clearTimeout(changeSizeTimeout)
+            isOpenedVideo = false
+        }
+        closeOverflow()
+        videoContainer.classList.remove('video-watch_active')
+        videoContainer.querySelector('.images-line_item')?.remove()
+        videoContainer.querySelector('.video-watch_play')?.remove()
+        if (!isMoveContainersActive) {
+            moveContainersInterval = startMoveContainersInterval()
+            isMoveContainersActive = true
+        }
     }
 
     const openVideo = (
         event,
         videoSrc = 'https://www.youtube.com/embed/bd-KpqIyLUk'
     ) => {
-        clearInterval(moveContainers)
+        if (isMoveContainersActive) {
+            clearInterval(moveContainersInterval)
+            isMoveContainersActive = false
+        }
 
-        setTimeout(() => {
+        isOpenedVideo = true
+
+        openVideoTimeout = setTimeout(() => {
             const iframe = document.createElement('iframe')
-            iframe.src = videoSrc
-            iframe.setAttribute('autoplay', 'true')
+            iframe.src = videoSrc + '?autoplay=1'
             iframe.classList.add('video-watch_play')
             videoContainer.appendChild(iframe)
-        }, 1000)
+        }, 800)
 
         const parentRect =
             event.currentTarget.parentElement.getBoundingClientRect()
@@ -110,7 +141,8 @@ document.addEventListener('DOMContentLoaded', function () {
         videoContainer.style.left = `${parentRect.left}px`
         videoContainer.append(imageCopy)
         showOverflow()
-        setTimeout(() => {
+
+        changeSizeTimeout = setTimeout(() => {
             videoContainer.style.top = `calc(50% - 212px)`
             videoContainer.style.left = `calc(50% - 378px)`
         })
@@ -120,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return [...images, ...images.slice(0, imagesOffset)].map((image) => {
             const imageElement = document.createElement('li')
             const hoverElement = document.createElement('div')
-            const itemButton = document.createElement('div')
+            const itemButton = document.createElement('button')
             const playIcon = document.createElement('img')
 
             imageElement.classList.add('images-line_item')
@@ -171,8 +203,8 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-    function startMoveContainers() {
-        const moveContainers = setInterval(() => {
+    function startMoveContainersInterval() {
+        const moveContainersInterval = setInterval(() => {
             Math.abs(positionFirstContainer) >
             imagesContainerWidth - imagesOffset * imageWidth
                 ? (positionFirstContainer = 0)
@@ -186,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
             imagesContainers[0].style.transform = `translateX(${positionFirstContainer}px)`
             imagesContainers[1].style.transform = `translateX(${positionSecondContainer}px)`
         }, 15)
-        return moveContainers
+        return moveContainersInterval
     }
 
     imagesContainers[0].addEventListener('mouseenter', () => {
@@ -202,6 +234,4 @@ document.addEventListener('DOMContentLoaded', function () {
     imagesContainers[1].addEventListener('mouseleave', () => {
         pixelsMoveSecond = moveSpeed * 1.3
     })
-
-    overflowDisplay.addEventListener('click', closeVideo)
 })

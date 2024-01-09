@@ -38,15 +38,8 @@
         color: #fff;
         height: 46px;
         width: 153px;
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: border 0.3s;
+        transition: all 0.3s;
         &:hover {
-            a {
-                color: #adacac;
-            }
             color: #adacac;
             border: 1px solid #adacac;
         }
@@ -56,9 +49,13 @@
             transition: color 0.3s;
             position: relative;
         }
-        svg {
-            transition: color 0.3s;
-        }
+    }
+    .button-container {
+        position: absolute;
+        bottom: 50px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
     }
 }
 .images-line {
@@ -74,11 +71,11 @@
     &_item {
         width: 378px;
         height: 212px;
-        border-radius: 10px;
-        background-size: cover;
         display: inline-block;
         position: relative;
         margin: 0 10px 20px;
+        border-radius: 10px;
+        background-size: cover;
         transition: all 0.5s;
         .image-line_item_hover {
             opacity: 0.001;
@@ -93,6 +90,7 @@
             white-space: nowrap;
             min-width: 28px;
             border-radius: 980px;
+            border: none;
             background: #0071e3;
             color: #fff;
             font-size: 17px;
@@ -138,7 +136,7 @@
 }
 .video-watch {
     display: none;
-    position: relative;
+    position: fixed;
     width: 378px;
     height: 212px;
     border-radius: 10px;
@@ -148,7 +146,6 @@
     transition: left 1s ease-in-out, top 1s ease-in-out;
     &_active {
         display: block;
-        position: fixed;
         animation: 1s open-video forwards;
         .images-line_item {
             width: 100%;
