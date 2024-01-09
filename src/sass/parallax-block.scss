@@ -1,88 +1,124 @@
 .parallax-block {
-    height: 200vh;
+    height: 1700px;
     position: relative;
     .images-container {
-        width: 1400px;
-        height: 350px;
+        width: 1px;
+        height: 100%;
         position: absolute;
-        left: 50%;
+        left: calc(50vw - 1450px / 2);
         transform: translateX(-50%);
+        .parallax-image {
+            transition: all 0.3s;
+            border-radius: 65%;
+            &:hover {
+                scale: 1.1;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            }
+        }
         &_first {
-            top: 50px;
             .parallax-image {
                 &:nth-child(1) {
-                    top: 0px;
-                    left: 50px;
+                    top: 40px;
+                    left: 80px;
                 }
                 &:nth-child(2) {
-                    top: 100px;
-                    left: 600px;
+                    top: 120px;
+                    left: 660px;
                 }
                 &:nth-child(3) {
-                    top: 300px;
-                    left: 0px;
+                    top: 400px;
+                    left: 220px;
+                }
+                &:nth-child(4) {
+                    top: 620px;
+                    left: 610px;
+                }
+                &:nth-child(5) {
+                    top: 620px;
+                    left: 950px;
                 }
             }
         }
         &_second {
-            top: 70px;
             .parallax-image {
                 &:nth-child(1) {
-                    top: 170px;
+                    top: 540px;
                     left: 0px;
                 }
+
                 &:nth-child(2) {
-                    top: 0px;
-                    left: 200px;
+                    top: 70px;
+                    left: 270px;
                 }
+
                 &:nth-child(3) {
-                    top: 250px;
-                    left: 430px;
-                }
-                &:nth-child(4) {
-                    top: 300px;
+                    top: 370px;
                     left: 750px;
                 }
-                &:nth-child(5) {
-                    top: 50px;
-                    left: 880px;
-                }
-                &:nth-child(6) {
-                    top: 230px;
-                    left: 1100px;
-                }
-                &:nth-child(7) {
-                    top: 0px;
-                    left: 1260px;
-                }
-                &:nth-child(8) {
-                    top: 500px;
-                    left: 0px;
-                }
-                &:nth-child(9) {
-                    top: 500px;
-                    left: 1250px;
+                &:nth-child(4) {
+                    top: 60px;
+                    left: 1230px;
                 }
             }
         }
         &_third {
-            top: 420px;
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 280px;
+                    left: 40px;
+                }
+                &:nth-child(2) {
+                    top: 570px;
+                    left: 360px;
+                }
+                &:nth-child(3) {
+                    top: 350px;
+                    left: 510px;
+                }
+                &:nth-child(4) {
+                    top: 120px;
+                    left: 910px;
+                }
+                &:nth-child(5) {
+                    top: 300px;
+                    left: 1150px;
+                }
+                &:nth-child(6) {
+                    top: 600px;
+                    left: 1230px;
+                }
+            }
+        }
+        &_fourth {
+            top: 910px;
             .parallax-image {
                 &:nth-child(1) {
                     top: 0px;
-                    left: 160px;
+                    left: 190px;
                 }
                 &:nth-child(2) {
-                    top: 130px;
-                    left: 300px;
+                    top: 10px;
+                    left: 950px;
                 }
                 &:nth-child(3) {
-                    top: 150px;
-                    left: 570px;
+                    top: 400px;
+                    left: 0px;
                 }
                 &:nth-child(4) {
-                    top: 150px;
+                    top: 450px;
                     left: 950px;
+                }
+                &:nth-child(5) {
+                    top: 300px;
+                    left: 1150px;
+                }
+                &:nth-child(6) {
+                    top: 650px;
+                    left: 70px;
+                }
+                &:nth-child(7) {
+                    top: 600px;
+                    left: 1200px;
                 }
             }
         }
@@ -93,19 +129,19 @@
 }
 .image {
     &_small {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
     }
     &_medium {
-        width: 100px;
-        height: 100px;
+        width: 115px;
+        height: 115px;
     }
     &_large {
-        width: 140px;
-        height: 140px;
+        width: 150px;
+        height: 150px;
     }
     &_xl {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
     }
 }

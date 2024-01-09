@@ -3120,9 +3120,9 @@ let authorImagesCounter = 0
 
 const parallaxContainers = document.querySelectorAll('.images-container')
 
-let startFirstContainer = null,
-    startSecondContainer = null,
-    startThirdContainer = null
+const currentScrollValue = window.scrollX
+
+let startContainersScroll = null
 
 const changeContainerTranslate = (
     container,
@@ -3132,16 +3132,8 @@ const changeContainerTranslate = (
 ) => {
     if (startPosition) {
         const parallaxValue = (window.scrollY - startPosition) / K
-        if (parallaxValue > maxTranslatePx) {
-            // window.removeEventListener('scroll', () => {
-            //     changeContainerTranslate(
-            //         parallaxContainers[0],
-            //         startFirstContainer
-            //     )
-            // })
-        } else {
-            container.style.transform = `translate(-50%, ${parallaxValue}px)`
-        }
+        if (parallaxValue > maxTranslatePx) return
+        container.style.transform = `translate(-50%, ${parallaxValue}px)`
     }
 }
 
@@ -3154,102 +3146,68 @@ const createImg = (size = 'small' || 'medium' || 'large' || 'xl') => {
     return img
 }
 
-const addImgToFirstContainer = (container) => {
-    const img1 = createImg('small'),
-        img2 = createImg('small')
-
-    const images = [img1, img2]
-    images.forEach((img) => container.appendChild(img))
+const addImgToContainer = (container, imgsSize = []) => {
+    imgsSize.forEach((size) => {
+        container.appendChild(createImg(size))
+    })
 }
 
-const addImgToSecondContainer = (container) => {
-    const img1 = createImg('medium'),
-        img2 = createImg('xl'),
-        img3 = createImg('medium'),
-        img4 = createImg('xl'),
-        img5 = createImg('medium'),
-        img6 = createImg('xl'),
-        img7 = createImg('large'),
-        img8 = createImg('xl'),
-        img9 = createImg('large')
+addImgToContainer(parallaxContainers[0], [
+    'small',
+    'small',
+    'small',
+    'large',
+    'small',
+])
+addImgToContainer(parallaxContainers[1], ['xl', 'xl', 'xl', 'large'])
+addImgToContainer(parallaxContainers[2], [
+    'medium',
+    'large',
+    'medium',
+    'large',
+    'xl',
+    'large',
+])
+addImgToContainer(parallaxContainers[3], [
+    'large',
+    'xl',
+    'xl',
+    'medium',
+    'medium',
+    'large',
+    'xl',
+])
 
-    const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
-    images.forEach((img) => container.appendChild(img))
-}
-
-const addImgToThirdContainer = (container) => {
-    const img1 = createImg('small'),
-        img2 = createImg('medium'),
-        img3 = createImg('medium'),
-        img4 = createImg('small')
-
-    const images = [img1, img2, img3, img4]
-    images.forEach((img) => container.appendChild(img))
-}
-
-addImgToFirstContainer(parallaxContainers[0])
-addImgToSecondContainer(parallaxContainers[1])
-addImgToThirdContainer(parallaxContainers[2])
-
-const observerFirstContainer = new IntersectionObserver(
+const observerHeaderContainers = new IntersectionObserver(
     function (entries, observer) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                if (!startFirstContainer) startFirstContainer = window.scrollY
+                startContainersScroll = window.scrollY
+
                 window.addEventListener('scroll', () => {
                     changeContainerTranslate(
                         parallaxContainers[0],
-                        startFirstContainer,
-                        70,
-                        10
+                        startContainersScroll,
+                        120,
+                        5
                     )
-                })
-            }
-        })
-    },
-    { threshold: 0.2 }
-)
-
-const observerSecondContainer = new IntersectionObserver(
-    function (entries, observer) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                if (!startSecondContainer) startSecondContainer = window.scrollY
-                window.addEventListener('scroll', () => {
                     changeContainerTranslate(
                         parallaxContainers[1],
-                        startSecondContainer,
-                        120,
-                        8
+                        startContainersScroll,
+                        170,
+                        5
                     )
-                })
-            }
-        })
-    },
-    { threshold: 0.2 }
-)
-
-const observerThirdContainer = new IntersectionObserver(
-    function (entries, observer) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                if (!startThirdContainer) startThirdContainer = window.scrollY
-                window.addEventListener('scroll', () => {
                     changeContainerTranslate(
                         parallaxContainers[2],
-                        startThirdContainer,
-                        100,
-                        7
+                        startContainersScroll,
+                        170,
+                        5
                     )
                 })
             }
         })
     },
-    { threshold: 0.2 }
+    { threshold: 0.01 }
 )
 
-observerFirstContainer.observe(parallaxContainers[0])
-
-observerSecondContainer.observe(parallaxContainers[1])
-
-observerThirdContainer.observe(parallaxContainers[2])
+observerHeaderContainers.observe(parallaxContainers[0])
