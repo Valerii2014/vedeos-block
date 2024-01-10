@@ -3113,6 +3113,9 @@ const reviewsData = [
     },
 ]
 
+window.dispatchEvent(new Event('scroll'))
+console.log(window.scrollY)
+
 const authorImages = reviewsData
     .filter((review) => review.author_image)
     .map((review) => review.author_image)
@@ -3128,12 +3131,20 @@ const textHeader = document.querySelector('.images-container_text-header')
 const textDescr = document.querySelector('.images-container_text-descr')
 
 const currentScrollValue = window.scrollX
+const sttttt = parallaxContainerBody.getBoundingClientRect()
+const screenHeight = window.innerHeight
+console.log(sttttt)
+console.log(screenHeight)
 
-let startHeaderContainerScroll = null,
+let startHeaderContainerScroll =
+        parallaxContainerHeader.getBoundingClientRect().y + screenHeight,
     startBodyContainerScroll = null,
     startTextHeaderContainerScroll = null
 
-let textTranslateValue = 0
+let headerFactor = 1
+
+let textTranslateValue = 0,
+    textHasOwnObserver = false
 
 const changeContainerTranslate = (
     container,
@@ -3148,6 +3159,47 @@ const changeContainerTranslate = (
     }
 }
 
+const changeContainerTranslateUpdated = (
+    container,
+    startPosition,
+    maxTranslatePx,
+    minTranslatePx,
+    K,
+    factor
+) => {
+    if (startPosition) {
+        let parallaxValue
+        if (factor > 0) {
+            parallaxValue =
+                (screenHeight - container.getBoundingClientRect().y) / K
+            if (parallaxValue > maxTranslatePx) {
+                factor = -1
+            } else if (parallaxValue < 0) {
+                return
+            } else {
+                container.style.transform = `translate(-50%, ${parallaxValue}px)`
+            }
+        }
+        if (factor < 0) {
+            parallaxValue =
+                2 * maxTranslatePx -
+                (screenHeight - container.getBoundingClientRect().y) / K
+            if (parallaxValue < minTranslatePx) {
+                return
+            } else {
+                if (
+                    (screenHeight - container.getBoundingClientRect().y) / K +
+                        maxTranslatePx <
+                    maxTranslatePx
+                ) {
+                    factor = 1
+                }
+                container.style.transform = `translate(-50%, ${parallaxValue}px)`
+            }
+        }
+    }
+}
+
 const changeTextHeaderTranslate = (startPosition, maxTranslatePx, K) => {
     if (!textHeader) return
     if (startPosition) {
@@ -3156,8 +3208,10 @@ const changeTextHeaderTranslate = (startPosition, maxTranslatePx, K) => {
         if (
             parallaxValue > maxTranslatePx ||
             parallaxValue - textTranslateValue < 0
-        )
+        ) {
+            textHasOwnObserver = false
             return
+        }
         textHeader.style.transform = `translate(-50%, ${parallaxValue}px)`
     }
 }
@@ -3166,11 +3220,10 @@ const textTranslateHandler = (startPosition, maxTranslatePx = 50, K = 8) => {
     const parallaxValue = (window.scrollY - startPosition) / K
     if (parallaxValue > maxTranslatePx || parallaxValue < 0) return
     textTranslateValue = parallaxValue
-    console.log(textTranslateValue)
 }
 
 const textTranslatePrev = () => {
-    console.log('scroll')
+    if (textHasOwnObserver) return
     changeContainerTranslate(textHeader, startBodyContainerScroll, 125, 7)
     textTranslateHandler(startBodyContainerScroll, 125, 7)
 }
@@ -3224,45 +3277,102 @@ addImgToContainer(parallaxContainers[4], [
     'xl',
 ])
 
-const observerHeaderContainers = new IntersectionObserver(
-    function (entries, observer) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                if (!startHeaderContainerScroll)
-                    startHeaderContainerScroll = window.scrollY
-                console.log(true)
-                window.addEventListener('scroll', () => {
-                    changeContainerTranslate(
-                        parallaxContainers[0],
-                        startHeaderContainerScroll,
-                        120,
-                        5
-                    )
-                    changeContainerTranslate(
-                        parallaxContainers[1],
-                        startHeaderContainerScroll,
-                        170,
-                        5
-                    )
-                    changeContainerTranslate(
-                        parallaxContainers[2],
-                        startHeaderContainerScroll,
-                        170,
-                        5
-                    )
-                })
-            }
-        })
-    },
-    { threshold: 0.01 }
+changeContainerTranslateUpdated(
+    parallaxContainers[0],
+    startHeaderContainerScroll,
+    96,
+    -22,
+    8,
+    headerFactor
 )
+changeContainerTranslateUpdated(
+    parallaxContainers[1],
+    startHeaderContainerScroll,
+    172,
+    -22,
+    4,
+    headerFactor
+)
+changeContainerTranslateUpdated(
+    parallaxContainers[2],
+    startHeaderContainerScroll,
+    172,
+    -22,
+    4,
+    headerFactor
+)
+
+window.addEventListener('scroll', () => {
+    changeContainerTranslateUpdated(
+        parallaxContainers[0],
+        startHeaderContainerScroll,
+        96,
+        -22,
+        8,
+        headerFactor
+    )
+    changeContainerTranslateUpdated(
+        parallaxContainers[1],
+        startHeaderContainerScroll,
+        172,
+        -22,
+        4,
+        headerFactor
+    )
+    changeContainerTranslateUpdated(
+        parallaxContainers[2],
+        startHeaderContainerScroll,
+        172,
+        -22,
+        4,
+        headerFactor
+    )
+})
+
+// const observerHeaderContainers = new IntersectionObserver(
+//     function (entries, observer) {
+//         entries.forEach(function (entry) {
+//             if (entry.isIntersecting) {
+//                 if (!startHeaderContainerScroll)
+//                     startHeaderContainerScroll = window.scrollY
+//                 window.addEventListener('scroll', () => {
+//                     changeContainerTranslateUpdated(
+//                         parallaxContainers[0],
+//                         startHeaderContainerScroll,
+//                         96,
+//                         -22,
+//                         8,
+//                         headerFactor
+//                     )
+//                     changeContainerTranslateUpdated(
+//                         parallaxContainers[1],
+//                         startHeaderContainerScroll,
+//                         172,
+//                         -22,
+//                         4,
+//                         headerFactor
+//                     )
+//                     changeContainerTranslateUpdated(
+//                         parallaxContainers[2],
+//                         startHeaderContainerScroll,
+//                         172,
+//                         -22,
+//                         4,
+//                         headerFactor
+//                     )
+//                 })
+//             }
+//         })
+//     },
+//     { threshold: 0.3 }
+// )
 
 const observerBodyContainers = new IntersectionObserver(
     function (entries, observer) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                startBodyContainerScroll = window.scrollY
-                console.log(true)
+                if (!startBodyContainerScroll)
+                    startBodyContainerScroll = window.scrollY
                 window.addEventListener('scroll', () => {
                     changeContainerTranslate(
                         parallaxContainers[3],
@@ -3277,7 +3387,9 @@ const observerBodyContainers = new IntersectionObserver(
                         5
                     )
                 })
-                window.addEventListener('scroll', textTranslatePrev)
+                if (!textHasOwnObserver) {
+                    window.addEventListener('scroll', textTranslatePrev)
+                }
             }
         })
     },
@@ -3298,9 +3410,8 @@ const observerTextHeaderContainer = new IntersectionObserver(
                         1
                     )
                 })
-                window.removeEventListener('scroll', textTranslatePrev)
             } else {
-                window.addEventListener('scroll', textTranslatePrev)
+                textHasOwnObserver = false
             }
         })
     },

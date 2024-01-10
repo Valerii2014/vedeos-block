@@ -1,5 +1,6 @@
 .parallax-block {
     height: 1900px;
+    width: 100vw;
     position: relative;
     .images-container-header,
     .images-container-body {
@@ -32,9 +33,8 @@
         &_text-header,
         &_text-descr {
             position: absolute;
-            width: 450px;
-            left: 50%;
-            transform: translateX(-50%);
+            width: 100%;
+
             line-height: 1.2285914286;
             font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica,
                 Arial, sans-serif;
@@ -42,11 +42,19 @@
             text-align: center;
         }
         &_text-header {
-            height: 50vh;
-            top: 50px;
+            height: 100px;
+            top: 50%;
+            display: flex;
+            justify-content: center;
+            position: sticky;
             font-size: 35px;
+            div {
+                width: 450px;
+            }
         }
         &_text-descr {
+            left: 50%;
+            transform: translateX(-50%);
             height: 150px;
             top: 750px;
             font-size: 20px;
@@ -153,7 +161,7 @@
                 }
                 &:nth-child(5) {
                     top: 300px;
-                    left: 1350px;
+                    left: 1335px;
                 }
                 &:nth-child(6) {
                     top: 650px;
@@ -189,7 +197,7 @@
                 }
                 &:nth-child(7) {
                     top: 500px;
-                    left: 1300px;
+                    left: 1250px;
                 }
             }
         }

@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const imagesContainerWidth =
         videoImagesData.length * imageWidth + imagesOffset * imageWidth
 
-    const moveSpeed = 0.85,
-        hoverMoveSpeed = 0.6
+    const moveSpeed = 1.4,
+        hoverMoveSpeed = 0.75
 
     let positionFirstContainer = 0,
         positionSecondContainer = -150
