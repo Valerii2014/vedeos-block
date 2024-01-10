@@ -3120,9 +3120,20 @@ let authorImagesCounter = 0
 
 const parallaxContainers = document.querySelectorAll('.images-container')
 
+const parallaxContainerHeader = document.querySelector(
+    '.images-container-header'
+)
+const parallaxContainerBody = document.querySelector('.images-container-body')
+const textHeader = document.querySelector('.images-container_text-header')
+const textDescr = document.querySelector('.images-container_text-descr')
+
 const currentScrollValue = window.scrollX
 
-let startContainersScroll = null
+let startHeaderContainerScroll = null,
+    startBodyContainerScroll = null,
+    startTextHeaderContainerScroll = null
+
+let textTranslateValue = 0
 
 const changeContainerTranslate = (
     container,
@@ -3132,9 +3143,36 @@ const changeContainerTranslate = (
 ) => {
     if (startPosition) {
         const parallaxValue = (window.scrollY - startPosition) / K
-        if (parallaxValue > maxTranslatePx) return
+        if (parallaxValue > maxTranslatePx || parallaxValue < 0) return
         container.style.transform = `translate(-50%, ${parallaxValue}px)`
     }
+}
+
+const changeTextHeaderTranslate = (startPosition, maxTranslatePx, K) => {
+    if (!textHeader) return
+    if (startPosition) {
+        const parallaxValue =
+            (window.scrollY + textTranslateValue - startPosition) / K
+        if (
+            parallaxValue > maxTranslatePx ||
+            parallaxValue - textTranslateValue < 0
+        )
+            return
+        textHeader.style.transform = `translate(-50%, ${parallaxValue}px)`
+    }
+}
+
+const textTranslateHandler = (startPosition, maxTranslatePx = 50, K = 8) => {
+    const parallaxValue = (window.scrollY - startPosition) / K
+    if (parallaxValue > maxTranslatePx || parallaxValue < 0) return
+    textTranslateValue = parallaxValue
+    console.log(textTranslateValue)
+}
+
+const textTranslatePrev = () => {
+    console.log('scroll')
+    changeContainerTranslate(textHeader, startBodyContainerScroll, 125, 7)
+    textTranslateHandler(startBodyContainerScroll, 125, 7)
 }
 
 const createImg = (size = 'small' || 'medium' || 'large' || 'xl') => {
@@ -3175,6 +3213,14 @@ addImgToContainer(parallaxContainers[3], [
     'medium',
     'medium',
     'large',
+])
+addImgToContainer(parallaxContainers[4], [
+    'medium',
+    'small',
+    'medium',
+    'small',
+    'small',
+    'small',
     'xl',
 ])
 
@@ -3182,24 +3228,25 @@ const observerHeaderContainers = new IntersectionObserver(
     function (entries, observer) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                startContainersScroll = window.scrollY
-
+                if (!startHeaderContainerScroll)
+                    startHeaderContainerScroll = window.scrollY
+                console.log(true)
                 window.addEventListener('scroll', () => {
                     changeContainerTranslate(
                         parallaxContainers[0],
-                        startContainersScroll,
+                        startHeaderContainerScroll,
                         120,
                         5
                     )
                     changeContainerTranslate(
                         parallaxContainers[1],
-                        startContainersScroll,
+                        startHeaderContainerScroll,
                         170,
                         5
                     )
                     changeContainerTranslate(
                         parallaxContainers[2],
-                        startContainersScroll,
+                        startHeaderContainerScroll,
                         170,
                         5
                     )
@@ -3210,4 +3257,70 @@ const observerHeaderContainers = new IntersectionObserver(
     { threshold: 0.01 }
 )
 
-observerHeaderContainers.observe(parallaxContainers[0])
+const observerBodyContainers = new IntersectionObserver(
+    function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                startBodyContainerScroll = window.scrollY
+                console.log(true)
+                window.addEventListener('scroll', () => {
+                    changeContainerTranslate(
+                        parallaxContainers[3],
+                        startBodyContainerScroll,
+                        125,
+                        7
+                    )
+                    changeContainerTranslate(
+                        parallaxContainers[4],
+                        startBodyContainerScroll,
+                        180,
+                        5
+                    )
+                })
+                window.addEventListener('scroll', textTranslatePrev)
+            }
+        })
+    },
+    { threshold: 0.01 }
+)
+
+const observerTextHeaderContainer = new IntersectionObserver(
+    function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                if (!startTextHeaderContainerScroll)
+                    startTextHeaderContainerScroll = window.scrollY
+
+                window.addEventListener('scroll', () => {
+                    changeTextHeaderTranslate(
+                        startTextHeaderContainerScroll,
+                        600,
+                        1
+                    )
+                })
+                window.removeEventListener('scroll', textTranslatePrev)
+            } else {
+                window.addEventListener('scroll', textTranslatePrev)
+            }
+        })
+    },
+    { threshold: 1 }
+)
+
+const observerTextDescrContainer = new IntersectionObserver(
+    function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                textDescr.classList.add('images-container_text-descr_active')
+            } else {
+                textDescr.classList.remove('images-container_text-descr_active')
+            }
+        })
+    },
+    { threshold: 1 }
+)
+
+observerHeaderContainers.observe(parallaxContainerHeader)
+observerBodyContainers.observe(parallaxContainerBody)
+observerTextHeaderContainer.observe(textHeader)
+observerTextDescrContainer.observe(textDescr)
