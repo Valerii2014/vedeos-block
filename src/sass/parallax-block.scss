@@ -1,9 +1,10 @@
 .parallax-block {
-    height: 1900px;
+    height: 2400px;
     width: 100vw;
     position: relative;
     .images-container-header,
-    .images-container-body {
+    .images-container-body,
+    .images-container-footer {
         width: 1450px;
         height: 900px;
         position: absolute;
@@ -13,6 +14,9 @@
     }
     .images-container-body {
         top: 900px;
+    }
+    .images-container-footer {
+        top: 1800px;
     }
     .images-container {
         width: 1px;
@@ -41,6 +45,7 @@
             text-align: center;
         }
         &_text-header {
+            margin-top: 50px;
             height: 150px;
             width: 100%;
             top: 50%;
@@ -200,6 +205,78 @@
                 &:nth-child(7) {
                     top: 500px;
                     left: 1250px;
+                }
+            }
+        }
+        &_sixth {
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 150px;
+                    left: 220px;
+                }
+                &:nth-child(2) {
+                    top: 220px;
+                    left: 490px;
+                }
+                &:nth-child(3) {
+                    top: 110px;
+                    left: 1000px;
+                }
+                &:nth-child(4) {
+                    top: 500px;
+                    left: 800px;
+                }
+            }
+        }
+        &_seventh {
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 80px;
+                    left: 410px;
+                }
+                &:nth-child(2) {
+                    top: 200px;
+                    left: 750px;
+                }
+                &:nth-child(3) {
+                    top: 70px;
+                    left: 1300px;
+                }
+                &:nth-child(4) {
+                    top: 370px;
+                    left: 390px;
+                }
+                &:nth-child(5) {
+                    top: 470px;
+                    left: 570px;
+                }
+                &:nth-child(6) {
+                    top: 280px;
+                    left: 1170px;
+                }
+            }
+        }
+        &_eighth {
+            .parallax-image {
+                &:nth-child(1) {
+                    top: 350px;
+                    left: 200px;
+                }
+                &:nth-child(2) {
+                    top: 280px;
+                    left: 650px;
+                }
+                &:nth-child(3) {
+                    top: 270px;
+                    left: 900px;
+                }
+                &:nth-child(4) {
+                    top: 420px;
+                    left: 1040px;
+                }
+                &:nth-child(5) {
+                    top: 510px;
+                    left: 1240px;
                 }
             }
         }
