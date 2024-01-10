@@ -33,7 +33,6 @@
         &_text-header,
         &_text-descr {
             position: absolute;
-            width: 100%;
 
             line-height: 1.2285914286;
             font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica,
@@ -42,26 +41,29 @@
             text-align: center;
         }
         &_text-header {
-            height: 100px;
+            height: 150px;
+            width: 100%;
             top: 50%;
             display: flex;
             justify-content: center;
             position: sticky;
             font-size: 35px;
+            z-index: -10;
             div {
                 width: 450px;
             }
         }
         &_text-descr {
             left: 50%;
+            width: 450px;
             transform: translateX(-50%);
             height: 150px;
-            top: 750px;
+            top: 850px;
             font-size: 20px;
             color: #989898;
             opacity: 0;
             transform: translate(-50%, 30%);
-            transition: all 0.5s;
+            transition: all 0.8s;
             &_active {
                 opacity: 1;
                 transform: translate(-50%, 0);
@@ -82,7 +84,7 @@
                     left: 220px;
                 }
                 &:nth-child(4) {
-                    top: 660px;
+                    top: 620px;
                     left: 610px;
                 }
                 &:nth-child(5) {
@@ -149,7 +151,7 @@
                 }
                 &:nth-child(2) {
                     top: 10px;
-                    left: 1100px;
+                    left: 1070px;
                 }
                 &:nth-child(3) {
                     top: 400px;
@@ -184,8 +186,8 @@
                     left: 300px;
                 }
                 &:nth-child(4) {
-                    top: 230px;
-                    left: 1140px;
+                    top: 260px;
+                    left: 1120px;
                 }
                 &:nth-child(5) {
                     top: 530px;
