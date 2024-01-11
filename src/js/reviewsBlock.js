@@ -3548,11 +3548,8 @@ let reviewsDataCounter = 0
 
 const parallaxContainers = document.querySelectorAll('.images-container')
 const bodyContainer = document.querySelector('.images-container-body')
-
 const textDescr = document.querySelector('.images-container_text-descr')
 const textHeader = document.querySelector('.images-container_text-header')
-
-const screenHeight = window.innerHeight
 
 window.dispatchEvent(new Event('scroll'))
 
@@ -3564,7 +3561,10 @@ const changeContainerTranslateUpdated = (
     delayValuePx = 0 /////// Pixels Value is delay
 ) => {
     const moveValue =
-        (screenHeight - delayValuePx - container.getBoundingClientRect().y) / K
+        (window.innerHeight -
+            delayValuePx -
+            container.getBoundingClientRect().y) /
+        K
 
     let parallaxValue = moveValue
 
@@ -3626,7 +3626,10 @@ const textDescrHandler = (distancePx) => {
 
     if (distance < distancePx && distance >= 0) {
         textDescr.classList.add('images-container_text-descr_active')
-    } else if (containerPosition.y + containerPosition.height > screenHeight) {
+    } else if (
+        containerPosition.y + containerPosition.height >
+        window.innerHeight
+    ) {
         textDescr.classList.remove('images-container_text-descr_active')
     }
 }
