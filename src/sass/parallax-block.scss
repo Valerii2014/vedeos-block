@@ -1,6 +1,6 @@
 .parallax-block {
     height: 2450px;
-    width: 100vw;
+    width: 100%;
     position: relative;
 
     .images-container-header,
@@ -36,52 +36,43 @@
             position: absolute;
             transition: all 0.3s;
             border-radius: 65%;
-            &_wrapper {
-                // position: absolute;
-                // top: 0;
-                // left: 50%;
-                // overflow: hidden;
-                // width: 0px;
-                // height: 100%;
-                // transition: all 0.5s;
-
-                width: 0;
-                height: 0px;
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                overflow: hidden;
-                transform: translateX(-50%);
-                // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-                // border-radius: 10px;
-                // background-color: #fff;
-                transition: all 0.5s;
-                line-height: 15px;
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            a:focus {
+                outline: none;
             }
             &_comment {
-                max-width: 200px;
-                min-width: 150px;
-                max-height: 90px;
-                position: relative;
+                width: 100%;
+                max-height: 100px;
+                padding: 5px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 97%;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 -webkit-line-clamp: 4;
                 text-align: center;
-                line-height: 18px;
+                line-height: 21px;
                 font-family: SF Pro Text, SF Pro Icons, Helvetica Neue,
                     Helvetica, Arial, sans-serif;
                 font-weight: 500;
                 font-size: 15px;
-                opacity: 0.3;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                opacity: 0;
                 transition: all 0.5s;
+                border-radius: 10px;
+                cursor: initial;
+                pointer-events: none;
             }
 
             &_title {
+                padding: 5px 10px;
                 position: absolute;
                 top: -15px;
                 left: 50%;
-                max-width: 200px;
+                width: 100%;
                 opacity: 0;
                 transform: translateX(-50%);
                 font-weight: 700;
@@ -91,43 +82,24 @@
                 font-family: SF Pro Text, SF Pro Icons, Helvetica Neue,
                     Helvetica, Arial, sans-serif;
                 transition: all 0.3s;
+                text-align: center;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                cursor: initial;
+                pointer-events: none;
             }
             &_active {
                 z-index: 100;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-                // .parallax-image {
-                //     z-index: 150;
-                // }
-                .parallax-item_wrapper {
-                    min-width: 200px;
 
-                    height: 90px;
-                    top: calc(100% + 10px);
-                }
                 .parallax-item_title {
-                    padding: 5px 10px;
-                    top: -25px;
+                    top: -30px;
                     opacity: 1;
                 }
                 .parallax-item_comment {
                     opacity: 1;
+                    top: calc(100% + 5px);
                 }
             }
-            // &_active {
-            //     scale: 1.1;
-            //     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-            //     z-index: 50;
-            //     .parallax-image {
-            //         z-index: 50;
-            //     }
-            //     .parallax-item_wrapper {
-            //         width: calc(230px + 50%);
-            //         z-index: 40;
-            //     }
-            //     .parallax-item_comment {
-            //         z-index: 30;
-            //     }
-            // }
         }
         &_text-header,
         &_text-descr {
@@ -263,7 +235,7 @@
                 }
                 &:nth-child(5) {
                     top: 300px;
-                    left: 1335px;
+                    left: 1325px;
                 }
                 &:nth-child(6) {
                     top: 670px;
@@ -299,7 +271,7 @@
                 }
                 &:nth-child(7) {
                     top: 500px;
-                    left: 1250px;
+                    left: 1240px;
                 }
             }
         }
@@ -314,8 +286,8 @@
                     left: 450px;
                 }
                 &:nth-child(3) {
-                    top: 125px;
-                    left: 1045px;
+                    top: 165px;
+                    left: 1015px;
                 }
                 &:nth-child(4) {
                     top: 550px;

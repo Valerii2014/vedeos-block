@@ -3540,6 +3540,7 @@ const reviewsData = reviews
             author_image: review.author_image,
             author_title: decodeURIComponent(review.author_title),
             review_text: decodeURIComponent(review.review_text),
+            review_link: review.review_link,
         }
     })
 
@@ -3557,65 +3558,53 @@ window.dispatchEvent(new Event('scroll'))
 
 const changeContainerTranslateUpdated = (
     container, ///////////// Container with images
-    maxTranslatePx, //////// Max translateY value
-    minTranslatePx, //////// Min translateY  value
-    K, ///////////////////// Scroll pixels / K  = translateY container (translateY(Scroll pixels / K ))
+    maxTranslatePx, //////// Max translateY value in px
+    minTranslatePx, //////// Min translateY  value in px
+    K, ///////////////////// container.translateY = Scroll pixels / K
     delayValuePx = 0 /////// Pixels Value is delay
 ) => {
     const moveValue =
         (screenHeight - delayValuePx - container.getBoundingClientRect().y) / K
-    let moveFactor = 1 || -1
-    let parallaxValue
 
-    if (moveFactor > 0) {
-        parallaxValue = moveValue
-        if (parallaxValue > maxTranslatePx) {
-            moveFactor = -1
-        } else if (parallaxValue < 0) {
-            return
-        } else {
-            container.style.transform = `translate(-50%, ${parallaxValue}px)`
-        }
-    }
-    if (moveFactor < 0) {
+    let parallaxValue = moveValue
+
+    if (parallaxValue > maxTranslatePx) {
         parallaxValue = 2 * maxTranslatePx - moveValue
         if (parallaxValue < minTranslatePx) {
             container.style.transform = `translate(-50%, ${minTranslatePx}px)`
-            return
         } else {
-            if (moveValue + maxTranslatePx < maxTranslatePx) {
-                moveFactor = 1
-            }
             container.style.transform = `translate(-50%, ${parallaxValue}px)`
         }
+    } else if (parallaxValue > 0) {
+        container.style.transform = `translate(-50%, ${parallaxValue}px)`
     }
 }
 
 const createImg = (size = 'small' || 'medium' || 'large' || 'xl') => {
-    const { author_image, review_text, author_title } =
+    const { author_image, review_text, author_title, review_link } =
         reviewsData[reviewsDataCounter]
 
-    const parallaxItem = document.createElement('div')
     const img = document.createElement('img')
     const comment = document.createElement('div')
+    const commentLink = document.createElement('a')
     const commentTitle = document.createElement('div')
-    const commentWrapper = document.createElement('div')
+    const parallaxItem = document.createElement('div')
 
     img.src = author_image
     img.alt = author_title
+    commentLink.target = '_blanck'
+    commentLink.href = review_link
     comment.textContent = review_text
     commentTitle.textContent = author_title
 
-    parallaxItem.appendChild(img)
+    commentLink.appendChild(img)
+    parallaxItem.appendChild(comment)
+    parallaxItem.appendChild(commentLink)
     parallaxItem.appendChild(commentTitle)
-    parallaxItem.appendChild(commentWrapper)
-    commentWrapper.appendChild(comment)
-    // comment.appendChild(commentTitle)
 
     img.classList.add('parallax-image')
     comment.classList.add('parallax-item_comment')
     commentTitle.classList.add('parallax-item_title')
-    commentWrapper.classList.add('parallax-item_wrapper')
     parallaxItem.classList.add('parallax-item', `item_${size}`)
 
     reviewsDataCounter += 1
@@ -3629,13 +3618,13 @@ const addImgToContainer = (container, imgsSize = []) => {
     })
 }
 
-const textDescrHandler = () => {
+const textDescrHandler = (distancePx) => {
     const containerPosition = textDescr.getBoundingClientRect()
     const textContainerPosition = textHeader.getBoundingClientRect().bottom
     const bodyContainerPosition = bodyContainer.getBoundingClientRect().bottom
     const distance = bodyContainerPosition - textContainerPosition
 
-    if (distance < 30 && distance >= 0) {
+    if (distance < distancePx && distance >= 0) {
         textDescr.classList.add('images-container_text-descr_active')
     } else if (containerPosition.y + containerPosition.height > screenHeight) {
         textDescr.classList.remove('images-container_text-descr_active')
@@ -3694,30 +3683,32 @@ addImgToContainer(parallaxContainers[7], [
 
 parallaxContainers.forEach((container, currentIndex) => {
     container.querySelectorAll('.parallax-item').forEach((item) => {
-        item.addEventListener('mouseenter', () => {
-            item.classList.add('parallax-item_active')
-            parallaxContainers[currentIndex].style.zIndex = 1
+        item.addEventListener('mouseenter', (e) => {
+            parallaxContainers.forEach(
+                (container) => (container.style.zIndex = 0)
+            )
+            if (e.target.classList.contains('parallax-item')) {
+                item.classList.add('parallax-item_active')
+                parallaxContainers[currentIndex].style.zIndex = 1
+            }
         })
         item.addEventListener('mouseleave', () => {
             item.classList.remove('parallax-item_active')
-            parallaxContainers[currentIndex].style.zIndex = 0
         })
     })
 })
 
 const parallaxHeaderBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[0], 96, -22, 8, 100)
-    changeContainerTranslateUpdated(parallaxContainers[1], 172, -22, 4, 100)
-    changeContainerTranslateUpdated(parallaxContainers[2], 172, -22, 4, 100)
+    changeContainerTranslateUpdated(parallaxContainers[0], 96, -22, 10, 100)
+    changeContainerTranslateUpdated(parallaxContainers[1], 172, -22, 5, 100)
+    changeContainerTranslateUpdated(parallaxContainers[2], 172, -22, 5, 100)
 }
-
 const parallaxBodyBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[3], 125, 30, 6, 340)
-    changeContainerTranslateUpdated(parallaxContainers[4], 180, 0, 4, 340)
+    changeContainerTranslateUpdated(parallaxContainers[3], 125, 30, 6, 500)
+    changeContainerTranslateUpdated(parallaxContainers[4], 180, 0, 4, 500)
 }
-
 const parallaxFooterBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[5], 1, -70, 7, 180)
+    changeContainerTranslateUpdated(parallaxContainers[5], 1, -70, 10, 180)
     changeContainerTranslateUpdated(parallaxContainers[7], 100, 0, 10, 180)
 }
 
@@ -3725,9 +3716,9 @@ const observerTextDescrContainer = new IntersectionObserver(
     function (entries, observer) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                window.addEventListener('scroll', textDescrHandler)
+                window.addEventListener('scroll', () => textDescrHandler(50))
             } else {
-                window.removeEventListener('scroll', textDescrHandler)
+                window.removeEventListener('scroll', () => textDescrHandler(50))
             }
         })
     },
@@ -3743,4 +3734,5 @@ window.addEventListener('scroll', () => {
     parallaxBodyBlock()
     parallaxFooterBlock()
 })
+
 observerTextDescrContainer.observe(textDescr)
