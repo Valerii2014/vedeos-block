@@ -3546,8 +3546,10 @@ const reviewsData = reviews
 let reviewsDataCounter = 0
 
 const parallaxContainers = document.querySelectorAll('.images-container')
+const bodyContainer = document.querySelector('.images-container-body')
 
 const textDescr = document.querySelector('.images-container_text-descr')
+const textHeader = document.querySelector('.images-container_text-header')
 
 const screenHeight = window.innerHeight
 
@@ -3578,6 +3580,7 @@ const changeContainerTranslateUpdated = (
     if (moveFactor < 0) {
         parallaxValue = 2 * maxTranslatePx - moveValue
         if (parallaxValue < minTranslatePx) {
+            container.style.transform = `translate(-50%, ${minTranslatePx}px)`
             return
         } else {
             if (moveValue + maxTranslatePx < maxTranslatePx) {
@@ -3595,7 +3598,7 @@ const createImg = (size = 'small' || 'medium' || 'large' || 'xl') => {
     const parallaxItem = document.createElement('div')
     const img = document.createElement('img')
     const comment = document.createElement('div')
-    const commentTitle = document.createElement('span')
+    const commentTitle = document.createElement('div')
     const commentWrapper = document.createElement('div')
 
     img.src = author_image
@@ -3604,12 +3607,14 @@ const createImg = (size = 'small' || 'medium' || 'large' || 'xl') => {
     commentTitle.textContent = author_title
 
     parallaxItem.appendChild(img)
+    parallaxItem.appendChild(commentTitle)
     parallaxItem.appendChild(commentWrapper)
     commentWrapper.appendChild(comment)
-    comment.appendChild(commentTitle)
+    // comment.appendChild(commentTitle)
 
     img.classList.add('parallax-image')
     comment.classList.add('parallax-item_comment')
+    commentTitle.classList.add('parallax-item_title')
     commentWrapper.classList.add('parallax-item_wrapper')
     parallaxItem.classList.add('parallax-item', `item_${size}`)
 
@@ -3624,9 +3629,22 @@ const addImgToContainer = (container, imgsSize = []) => {
     })
 }
 
+const textDescrHandler = () => {
+    const containerPosition = textDescr.getBoundingClientRect()
+    const textContainerPosition = textHeader.getBoundingClientRect().bottom
+    const bodyContainerPosition = bodyContainer.getBoundingClientRect().bottom
+    const distance = bodyContainerPosition - textContainerPosition
+
+    if (distance < 30 && distance >= 0) {
+        textDescr.classList.add('images-container_text-descr_active')
+    } else if (containerPosition.y + containerPosition.height > screenHeight) {
+        textDescr.classList.remove('images-container_text-descr_active')
+    }
+}
+
 addImgToContainer(parallaxContainers[0], [
     'small',
-    'small',
+    'medium',
     'small',
     'large',
     'small',
@@ -3657,12 +3675,7 @@ addImgToContainer(parallaxContainers[4], [
     'small',
     'xl',
 ])
-addImgToContainer(parallaxContainers[5], [
-    'large',
-    'medium',
-    'medium',
-    'medium',
-])
+addImgToContainer(parallaxContainers[5], ['xl', 'large', 'large', 'large'])
 addImgToContainer(parallaxContainers[6], [
     'small',
     'small',
@@ -3679,14 +3692,16 @@ addImgToContainer(parallaxContainers[7], [
     'small',
 ])
 
-const parallaxItems = document.querySelectorAll('.parallax-item')
-
-parallaxItems.forEach((item) => {
-    item.addEventListener('mouseenter', () => {
-        item.classList.add('parallax-item_active')
-    })
-    item.addEventListener('mouseleave', () => {
-        item.classList.remove('parallax-item_active')
+parallaxContainers.forEach((container, currentIndex) => {
+    container.querySelectorAll('.parallax-item').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('parallax-item_active')
+            parallaxContainers[currentIndex].style.zIndex = 1
+        })
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('parallax-item_active')
+            parallaxContainers[currentIndex].style.zIndex = 0
+        })
     })
 })
 
@@ -3702,21 +3717,21 @@ const parallaxBodyBlock = () => {
 }
 
 const parallaxFooterBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[5], 0, -70, 11, 250)
-    changeContainerTranslateUpdated(parallaxContainers[7], 100, 0, 14, 250)
+    changeContainerTranslateUpdated(parallaxContainers[5], 1, -70, 7, 180)
+    changeContainerTranslateUpdated(parallaxContainers[7], 100, 0, 10, 180)
 }
 
 const observerTextDescrContainer = new IntersectionObserver(
     function (entries, observer) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
-                textDescr.classList.add('images-container_text-descr_active')
+                window.addEventListener('scroll', textDescrHandler)
             } else {
-                textDescr.classList.remove('images-container_text-descr_active')
+                window.removeEventListener('scroll', textDescrHandler)
             }
         })
     },
-    { threshold: 1 }
+    { threshold: 0.01 }
 )
 
 parallaxHeaderBlock()

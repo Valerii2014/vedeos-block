@@ -1,7 +1,8 @@
 .parallax-block {
-    height: 2400px;
+    height: 2450px;
     width: 100vw;
     position: relative;
+
     .images-container-header,
     .images-container-body,
     .images-container-footer {
@@ -25,59 +26,108 @@
         top: 0%;
         left: 0%;
         transform: translateX(-50%);
+
         .parallax-image {
             position: relative;
             width: 100%;
             height: 100%;
-            z-index: 20;
         }
         .parallax-item {
             position: absolute;
             transition: all 0.3s;
             border-radius: 65%;
-
             &_wrapper {
+                // position: absolute;
+                // top: 0;
+                // left: 50%;
+                // overflow: hidden;
+                // width: 0px;
+                // height: 100%;
+                // transition: all 0.5s;
+
+                width: 0;
+                height: 0px;
                 position: absolute;
-                top: 0;
+                top: 100%;
                 left: 50%;
                 overflow: hidden;
-                width: 0px;
-                height: 100%;
+                transform: translateX(-50%);
+                // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+                // border-radius: 10px;
+                // background-color: #fff;
                 transition: all 0.5s;
+                line-height: 15px;
             }
             &_comment {
-                padding-top: 25px;
-                padding-right: 10px;
+                max-width: 200px;
+                min-width: 150px;
+                max-height: 90px;
+                position: relative;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 4;
+                text-align: center;
+                line-height: 18px;
+                font-family: SF Pro Text, SF Pro Icons, Helvetica Neue,
+                    Helvetica, Arial, sans-serif;
+                font-weight: 500;
+                font-size: 15px;
+                opacity: 0.3;
+                transition: all 0.5s;
+            }
+
+            &_title {
                 position: absolute;
-                right: 40px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+                top: -15px;
+                left: 50%;
+                max-width: 200px;
+                opacity: 0;
+                transform: translateX(-50%);
+                font-weight: 700;
+                text-wrap: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                border-radius: 10px;
-                background-color: #fff;
-                transition: width 0.5s;
-
-                span {
-                    position: absolute;
-                    top: 4px;
-                    font-weight: 700;
-                }
+                font-family: SF Pro Text, SF Pro Icons, Helvetica Neue,
+                    Helvetica, Arial, sans-serif;
+                transition: all 0.3s;
             }
             &_active {
-                scale: 1.1;
+                z-index: 100;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-                z-index: 50;
-                .parallax-image {
-                    z-index: 50;
-                }
+                // .parallax-image {
+                //     z-index: 150;
+                // }
                 .parallax-item_wrapper {
-                    width: calc(230px + 50%);
-                    z-index: 40;
+                    min-width: 200px;
+
+                    height: 90px;
+                    top: calc(100% + 10px);
+                }
+                .parallax-item_title {
+                    padding: 5px 10px;
+                    top: -25px;
+                    opacity: 1;
                 }
                 .parallax-item_comment {
-                    z-index: 30;
+                    opacity: 1;
                 }
             }
+            // &_active {
+            //     scale: 1.1;
+            //     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            //     z-index: 50;
+            //     .parallax-image {
+            //         z-index: 50;
+            //     }
+            //     .parallax-item_wrapper {
+            //         width: calc(230px + 50%);
+            //         z-index: 40;
+            //     }
+            //     .parallax-item_comment {
+            //         z-index: 30;
+            //     }
+            // }
         }
         &_text-header,
         &_text-descr {
@@ -107,7 +157,7 @@
             left: 50%;
             width: 450px;
             transform: translateX(-50%);
-            height: 150px;
+            height: 250px;
             top: 850px;
             font-size: 20px;
             color: #989898;
@@ -208,16 +258,16 @@
                     left: 0px;
                 }
                 &:nth-child(4) {
-                    top: 450px;
-                    left: 1100px;
+                    top: 480px;
+                    left: 1050px;
                 }
                 &:nth-child(5) {
                     top: 300px;
                     left: 1335px;
                 }
                 &:nth-child(6) {
-                    top: 650px;
-                    left: 70px;
+                    top: 670px;
+                    left: 120px;
                 }
             }
         }
@@ -240,12 +290,12 @@
                     left: 1120px;
                 }
                 &:nth-child(5) {
-                    top: 530px;
+                    top: 500px;
                     left: 270px;
                 }
                 &:nth-child(6) {
                     top: 640px;
-                    left: 1140px;
+                    left: 1075px;
                 }
                 &:nth-child(7) {
                     top: 500px;
@@ -256,72 +306,72 @@
         &_sixth {
             .parallax-item {
                 &:nth-child(1) {
-                    top: 150px;
-                    left: 220px;
+                    top: 190px;
+                    left: 85px;
                 }
                 &:nth-child(2) {
-                    top: 220px;
-                    left: 490px;
+                    top: 240px;
+                    left: 450px;
                 }
                 &:nth-child(3) {
-                    top: 110px;
-                    left: 1000px;
+                    top: 125px;
+                    left: 1045px;
                 }
                 &:nth-child(4) {
-                    top: 500px;
-                    left: 800px;
+                    top: 550px;
+                    left: 750px;
                 }
             }
         }
         &_seventh {
             .parallax-item {
                 &:nth-child(1) {
-                    top: 80px;
-                    left: 410px;
+                    top: 50px;
+                    left: 330px;
                 }
                 &:nth-child(2) {
-                    top: 200px;
-                    left: 750px;
+                    top: 170px;
+                    left: 740px;
                 }
                 &:nth-child(3) {
-                    top: 70px;
+                    top: 40px;
                     left: 1300px;
                 }
                 &:nth-child(4) {
-                    top: 370px;
-                    left: 390px;
+                    top: 390px;
+                    left: 285px;
                 }
                 &:nth-child(5) {
                     top: 470px;
-                    left: 570px;
+                    left: 510px;
                 }
                 &:nth-child(6) {
-                    top: 250px;
-                    left: 1190px;
+                    top: 300px;
+                    left: 1210px;
                 }
             }
         }
         &_eighth {
             .parallax-item {
                 &:nth-child(1) {
-                    top: 350px;
-                    left: 200px;
+                    top: 370px;
+                    left: 40px;
                 }
                 &:nth-child(2) {
                     top: 280px;
                     left: 650px;
                 }
                 &:nth-child(3) {
-                    top: 270px;
+                    top: 290px;
                     left: 900px;
                 }
                 &:nth-child(4) {
-                    top: 420px;
-                    left: 1040px;
+                    top: 430px;
+                    left: 1070px;
                 }
                 &:nth-child(5) {
-                    top: 470px;
-                    left: 1260px;
+                    top: 500px;
+                    left: 1270px;
                 }
             }
         }
@@ -332,54 +382,58 @@
     &_small {
         width: 90px;
         height: 90px;
-        .parallax-item_comment {
-            height: 90%;
-            padding-left: 55px;
-            width: 238px;
-            top: 5%;
+        // .parallax-item_comment {
+        //     height: 90%;
+        //     padding-left: 55px;
+        //     width: 238px;
+        //     top: 5%;
 
-            span {
-                left: 55px;
-            }
-        }
+        //     span {
+        //         left: 55px;
+        //         width: calc(100% - 55px);
+        //     }
+        // }
     }
     &_medium {
         width: 115px;
         height: 115px;
-        .parallax-item_comment {
-            height: 80%;
-            width: 250px;
-            top: 10%;
-            padding-left: 65px;
-            span {
-                left: 65px;
-            }
-        }
+        // .parallax-item_comment {
+        //     height: 80%;
+        //     width: 250px;
+        //     top: 10%;
+        //     padding-left: 65px;
+        //     span {
+        //         left: 65px;
+        //         width: calc(100% - 65px);
+        //     }
+        // }
     }
     &_large {
         width: 150px;
         height: 150px;
-        .parallax-item_comment {
-            height: 80%;
-            width: 265px;
-            top: 10%;
-            padding-left: 85px;
-            span {
-                left: 85px;
-            }
-        }
+        // .parallax-item_comment {
+        //     height: 80%;
+        //     width: 265px;
+        //     top: 10%;
+        //     padding-left: 85px;
+        //     span {
+        //         left: 85px;
+        //         width: calc(100% - 85px);
+        //     }
+        // }
     }
     &_xl {
         width: 200px;
         height: 200px;
-        .parallax-item_comment {
-            height: 70%;
-            width: 288px;
-            top: 15%;
-            padding-left: 110px;
-            span {
-                left: 110px;
-            }
-        }
+        // .parallax-item_comment {
+        //     height: 70%;
+        //     width: 288px;
+        //     top: 15%;
+        //     padding-left: 110px;
+        //     span {
+        //         left: 110px;
+        //         width: calc(100% - 110px);
+        //     }
+        // }
     }
 }
