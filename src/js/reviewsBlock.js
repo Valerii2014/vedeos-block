@@ -1,4 +1,4 @@
-const reviewsData = [
+const reviews = [
     {
         query: '0x40db21504699a15f:0x669adebeb22dd8f0',
         name: 'LP-CRM',
@@ -3080,6 +3080,423 @@ const reviewsData = [
         reviews_link: null,
         reviews: 481,
         rating: 4.9,
+        review_id: 'ChZDSUhNMG9nS0VJQ0FnSUNpOG9LX0RREAE',
+        review_pagination_id: 'CAESB0VnTUltUUU=',
+        author_link:
+            'https://www.google.com/maps/contrib/111605038761422110320?hl=uk',
+        author_title:
+            '\u0412\u0430\u043b\u0435\u0440\u0438\u0439 \u0421\u0430\u043c\u043e\u0439\u043b\u043e\u0432',
+        author_id: 111605038761422110320,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocIHZHibZRadssp01ixcoCn8Rhn6V-8Omvv6dFqDeHQ=s120-c-rp-mo-br100',
+        review_text: '\ud83d\udd25',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u041d\u0430\u0448\u0430 \u043a\u043e\u043c\u0430\u043d\u0434\u0430 \u0432\u0434\u044f\u0447\u043d\u0430 \u0437\u0430 \u0412\u0430\u0448\u0443 \u043f\u0456\u0434\u0442\u0440\u0438\u043c\u043a\u0443 \u0442\u0430 \u0432\u0456\u0434\u0433\u0443\u043a \ud83d\ude42\n\u0421\u0430\u043c\u0435 \u0442\u0430\u043a\u0456 \u0432\u0456\u0434\u0433\u0443\u043a\u0438 \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u044e\u0442\u044c \u043d\u0430\u043c \u0431\u043e\u0440\u043e\u0442\u0438\u0441\u044c \u0437\u0430 TOP CRM \u0441\u0438\u0441\u0442\u0435\u043c \u0423\u043a\u0440\u0430\u0457\u043d\u0438 \ud83d\ude80',
+        owner_answer_timestamp: 1603979834,
+        owner_answer_timestamp_datetime_utc: '10/29/2020 13:57:14',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNpOG9LX0RREAE!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgICi8oK_DQ%7CCgwI7uXeqQYQ0OqY1AM%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698149102,
+        review_datetime_utc: '10/24/2023 12:05:02',
+        review_likes: 26,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChdDSUhNMG9nS0VJQ0FnSUQ1MXBlbTVBRRAB',
+        review_pagination_id: 'CAESB0VnTUltZ0U=',
+        author_link:
+            'https://www.google.com/maps/contrib/118123694027830649308?hl=uk',
+        author_title:
+            '\u0410\u043d\u0442\u043e\u043d \u041c\u0430\u043b\u0430\u0448\u0435\u043d\u043a\u043e',
+        author_id: 118123694027830649308,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocKZqiCWYng-okCLmGT27JnxWi5oekNoCcEk_r3pb3Qw=s120-c-rp-mo-br100',
+        review_text:
+            '\u041d\u0430\u0434\u0437\u0432\u0438\u0447\u0430\u0439\u043d\u043e \u0437\u0440\u0443\u0447\u043d\u0430 \u0443 \u0432\u0438\u043a\u043e\u0440\u0438\u0441\u0442\u0430\u043d\u043d\u0456 \u0442\u0430 \u043d\u0430\u0439\u043a\u0440\u0430\u0449\u0438\u0439 \u0441\u0435\u0440\u0432\u0456\u0441 \u0432\u0456\u0434 \u043a\u043e\u043c\u043f\u0430\u043d\u0456\u0457. \u0420\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0432\u0430\u0432!',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0414\u044f\u043a\u0443\u0454\u043c\u043e \u0437\u0430 \u043f\u0440\u0438\u0434\u0456\u043b\u0435\u043d\u0438\u0439 \u0447\u0430\u0441 \u043d\u0430 \u0432\u0456\u0434\u0433\u0443\u043a! \u0412\u0430\u0448\u0430 \u043f\u0456\u0434\u0442\u0440\u0438\u043c\u043a\u0430 \u0440\u043e\u0431\u0438\u0442\u044c \u043d\u0430\u0441 \u043a\u0440\u0430\u0449\u0438\u043c\u0438 \u0443 \u0420\u0435\u0439\u0442\u0438\u043d\u0433\u0443 CRM \u0441\u0438\u0441\u0442\u0435\u043c \u0423\u043a\u0440\u0430\u0457\u043d\u0438 \ud83c\udfc6',
+        owner_answer_timestamp: 1698759245,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:34:05',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ1MXBlbTVBRRAB!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID51pem5AE%7CCgsI-cHeqQYQ8K3Lcg%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698144505,
+        review_datetime_utc: '10/24/2023 10:48:25',
+        review_likes: 3,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChdDSUhNMG9nS0VJQ0FnSUQ1bHRxXzFRRRAB',
+        review_pagination_id: 'CAESB0VnTUltd0U=',
+        author_link:
+            'https://www.google.com/maps/contrib/111073292458190632047?hl=uk',
+        author_title: '\u042e\u0430\u043c\u0456\u043a\u0441 Uamix',
+        author_id: 111073292458190632047,
+        author_image:
+            'https://lh3.googleusercontent.com/a-/ALV-UjWengl3COXF-uU5ph78nYQCVYiCJola-YFplapF3l-yOA=s120-c-rp-mo-br100',
+        review_text:
+            '\u0412\u0441\u0435 \u043e\u0442\u043b\u0438\u0447\u043d\u043e',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0412\u0430\u0448 \u0432\u0456\u0434\u0433\u0443\u043a \u0441\u043f\u0440\u0438\u044f\u0454 \u0440\u043e\u0437\u0432\u0438\u0442\u043a\u0443 \u043d\u0430\u0448\u043e\u0457 CRM \u0441\u0438\u0441\u0442\u0435\u043c\u0438 \u0439 \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u0454 \u043d\u0430\u043c \u0437\u0430\u043b\u0438\u0448\u0430\u0442\u0438 \u043a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u0456\u0432 \u043f\u043e\u0437\u0430\u0434\u0443 \ud83c\udfce\ufe0f\ud83c\udfc1',
+        owner_answer_timestamp: 1698760499,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:54:59',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ1bHRxXzFRRRAB!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5ltq_1QE%7CCgwIipDeqQYQqN6Z7wE%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698138122,
+        review_datetime_utc: '10/24/2023 09:02:02',
+        review_likes: 1,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChdDSUhNMG9nS0VJQ0FnSUQ1LXR1UHNBRRAB',
+        review_pagination_id: 'CAESB0VnTUluQUU=',
+        author_link:
+            'https://www.google.com/maps/contrib/110866931036224181591?hl=uk',
+        author_title:
+            '\u0410\u043d\u0430\u0441\u0442\u0430\u0441\u0438\u044f \u041a\u043b\u0438\u043c\u0447\u0443\u043a',
+        author_id: 110866931036224181591,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocInKijY_HkCGcQTJVNt2LaxrY0rN6k35HGUsVHatZLE=s120-c-rp-mo-br100',
+        review_text:
+            '\u0412\u0441\u0435 \u0437\u0440\u0443\u0447\u043d\u043e \u0442\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u043e. \u041f\u0440\u0438\u0454\u043c\u043d\u043e \u0432\u0456\u0434\u0447\u0443\u0432\u0430\u0442\u0438 \u043f\u043e\u0441\u0442\u0456\u0439\u043d\u0438\u0439 \u0437\u0432\u043e\u0440\u043e\u0442\u043d\u0456\u0439 \u0437\u0432\u2019\u044f\u0437\u043e\u043a, \u0442\u0430 \u043c\u0430\u0442\u0438 \u043c\u043e\u0436\u043b\u0438\u0432\u0456\u0441\u0442\u044c \u0437\u0432\u0435\u0440\u043d\u0443\u0442\u0438\u0441\u044c \u043f\u043e \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0443 \u0432 \u0431\u0443\u0434\u044c - \u044f\u043a\u0438\u0439 \u0447\u0430\u0441. \u0426\u0435 \u0434\u0443\u0436\u0435 \u043f\u043e\u0442\u0443\u0436\u043d\u043e, \u0434\u044f\u043a\u0443\u044e!',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0412\u0430\u0448\u0430 \u043f\u0456\u0434\u0442\u0440\u0438\u043c\u043a\u0430 \u0456 \u0432\u0456\u0434\u0433\u0443\u043a \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u044e\u0442\u044c \u043d\u0430\u043c \u0440\u043e\u0437\u0432\u0438\u0432\u0430\u0442\u0438 LP-CRM. \u0414\u044f\u043a\u0443\u0454\u043c\u043e \u0437\u0430 \u0446\u0435 \ud83d\udc4d',
+        owner_answer_timestamp: 1698758902,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:28:22',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ1LXR1UHNBRRAB!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5-tuPsAE%7CCgwItazaqQYQqJnElQE%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698076213,
+        review_datetime_utc: '10/23/2023 15:50:13',
+        review_likes: 2,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChZDSUhNMG9nS0VJQ0FnSUQ1LXZHcEVBEAE',
+        review_pagination_id: 'CAESB0VnTUluUUU=',
+        author_link:
+            'https://www.google.com/maps/contrib/113916965103764477259?hl=uk',
+        author_title:
+            '\u041f\u0435\u0442\u044f \u0422\u0430\u0440\u0430\u0431\u0438\u0446\u044b\u043d',
+        author_id: 113916965103764477259,
+        author_image:
+            'https://lh3.googleusercontent.com/a-/ALV-UjVL2d1IU9X8LosjVefW_Wvunh6LfKavp6V4uyqmJxzq7eM=s120-c-rp-mo-br100',
+        review_text:
+            '\u0413\u0430\u0440\u043d\u0430 \u043f\u0456\u0434\u0442\u0440\u0438\u043c\u043a\u0430 \ud83d\udc4d\ud83c\udffb',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0429\u0438\u0440\u043e \u0432\u0434\u044f\u0447\u043d\u0456 \u0437\u0430 \u0432\u0456\u0434\u0433\u0443\u043a \ud83d\ude4f\n\u0422\u041e\u041f CRM \u0441\u0438\u0441\u0442\u0435\u043c\u0430 \u2014 \u0446\u0435 \u0442\u0435, \u0447\u043e\u0433\u043e \u0412\u0438 \u0437\u0430\u0441\u043b\u0443\u0433\u043e\u0432\u0443\u0454\u0442\u0435, \u0456 \u043c\u0438 \u0437\u0430\u0432\u0436\u0434\u0438 \u043f\u0440\u0430\u0433\u043d\u0435\u043c\u043e \u0442\u0430\u043a\u0438\u043c\u0438 \u0431\u0443\u0442\u0438 \u0434\u043b\u044f \u0412\u0430\u0441 \ud83c\udf1f',
+        owner_answer_timestamp: 1698760022,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:47:02',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQ1LXZHcEVBEAE!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5-vGpEA%7CCgwIvZPaqQYQ8OSdkQM%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698073021,
+        review_datetime_utc: '10/23/2023 14:57:01',
+        review_likes: 1,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChdDSUhNMG9nS0VJQ0FnSUQ1LXFUUjBnRRAB',
+        review_pagination_id: 'CAESB0VnTUluZ0U=',
+        author_link:
+            'https://www.google.com/maps/contrib/110059672384850036821?hl=uk',
+        author_title:
+            '\u0415\u043b\u0438\u0437\u0430\u0432\u0435\u0442\u0430 \u0412\u0430\u043a\u0443\u043b\u0430',
+        author_id: 110059672384850036821,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocJ92qNaVSwsf4OlqwuS-hbG2lB8rLy5gzKAo8_Sjsl5=s120-c-rp-mo-br100',
+        review_text:
+            '\u0420\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u044e \u0434\u043e \u0441\u043f\u0456\u0432\u043f\u0440\u0430\u0446\u0456!',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0414\u044f\u043a\u0443\u0454\u043c\u043e \u0437\u0430 \u0412\u0430\u0448 \u0432\u0456\u0434\u0433\u0443\u043a \u0456 \u0437\u0430 \u0434\u043e\u0432\u0456\u0440\u0443, \u044f\u043a\u0443 \u0432\u0438 \u043d\u0430\u0434\u0430\u0454\u0442\u0435 \u043d\u0430\u0448\u0456\u0439 CRM \u0441\u0438\u0441\u0442\u0435\u043c\u0456 - \u0412\u0430\u0448\u0430 \u043f\u0456\u0434\u0442\u0440\u0438\u043c\u043a\u0430 \u0432\u0430\u0436\u043b\u0438\u0432\u0430 \u0434\u043b\u044f \u043d\u0430\u0441 \ud83d\ude0d',
+        owner_answer_timestamp: 1698759740,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:42:20',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ1LXFUUjBnRRAB!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5-qTR0gE%7CCgwIhvLZqQYQoLv5lwE%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698068742,
+        review_datetime_utc: '10/23/2023 13:45:42',
+        review_likes: 1,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChZDSUhNMG9nS0VJQ0FnSUQ1LXNqREF3EAE',
+        review_pagination_id: 'CAESB0VnTUlud0U=',
+        author_link:
+            'https://www.google.com/maps/contrib/107223745225307905042?hl=uk',
+        author_title:
+            '\u0421\u0442\u0430\u043d\u0456\u0441\u043b\u0430\u0432 \u0414\u043c\u0438\u0442\u0440\u0438\u0448\u0438\u043d',
+        author_id: 107223745225307905042,
+        author_image:
+            'https://lh3.googleusercontent.com/a-/ALV-UjWNsK6UcH6eCw4ZQl-Ag8E8RaxAh6Cfw9FqRNvSdOzMYQ=s120-c-rp-mo-br100',
+        review_text:
+            '\u0420\u0435\u043a\u043e\u043c\u043d\u0434\u0443\u044e , \u043a\u0440\u0443\u0442\u0430 \u043f\u0456\u0434\u0442\u0440\u0438\u043c\u043a\u0430 ,\u0440\u043e\u0437\u043a\u0430\u0436\u0435 \u0432\u0430\u043c \u0432\u0441\u0435 \u0432\u0456\u0434 \u0430 \u0434\u043e \u044f',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0412\u0430\u0448 \u0432\u0456\u0434\u0433\u0443\u043a \u0432\u0430\u0436\u043b\u0438\u0432\u0438\u0439 \u0434\u043b\u044f \u043d\u0430\u0441 \u0456 \u0434\u043e\u0434\u0430\u0454 \u043d\u0430\u043c \u0435\u043d\u0435\u0440\u0433\u0456\u0457 \u0434\u043b\u044f \u043f\u043e\u0434\u0430\u043b\u044c\u0448\u043e\u0433\u043e \u0432\u0434\u043e\u0441\u043a\u043e\u043d\u0430\u043b\u0435\u043d\u043d\u044f LP-CRM \ud83d\udc69\ud83c\udffb\u200d\ud83d\udcbb',
+        owner_answer_timestamp: 1698759273,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:34:33',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQ1LXNqREF3EAE!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5-sjDAw%7CCgsIk-3ZqQYQ6K6xFQ%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698068115,
+        review_datetime_utc: '10/23/2023 13:35:15',
+        review_likes: 1,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChZDSUhNMG9nS0VJQ0FnSUQ1dXJ1YVVBEAE',
+        review_pagination_id: 'CAESB0VnTUlvQUU=',
+        author_link:
+            'https://www.google.com/maps/contrib/108021405619700002961?hl=uk',
+        author_title:
+            '\u0412\u043b\u0430\u0434\u0438\u0441\u043b\u0430\u0432 \u0426\u0435\u0433\u043b\u043e\u0432',
+        author_id: 108021405619700002961,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocJgwADKyCb540G4IFFavHWhj-RPW9t_RUfKbVc8uL67=s120-c-rp-mo-br100',
+        review_text:
+            '\u0420\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u044e \u0434\u0430\u043d\u043d\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443! \u0421\u0430\u043f\u043e\u0440\u0442 \u0442\u043e\u043f!',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0412\u0430\u0448 \u0432\u0456\u0434\u0433\u0443\u043a \u0441\u043f\u0440\u0438\u044f\u0454 \u0440\u043e\u0437\u0432\u0438\u0442\u043a\u0443 \u043d\u0430\u0448\u043e\u0457 CRM \u0441\u0438\u0441\u0442\u0435\u043c\u0438 \u0439 \u0434\u043e\u043f\u043e\u043c\u0430\u0433\u0430\u0454 \u043d\u0430\u043c \u0437\u0430\u043b\u0438\u0448\u0430\u0442\u0438 \u043a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u0456\u0432 \u043f\u043e\u0437\u0430\u0434\u0443 \ud83c\udfce\ufe0f\ud83c\udfc1',
+        owner_answer_timestamp: 1698759548,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:39:08',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQ1dXJ1YVVBEAE!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5uruaUA%7CCgwI_9rZqQYQ6PbjnQM%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698065791,
+        review_datetime_utc: '10/23/2023 12:56:31',
+        review_likes: 3,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChZDSUhNMG9nS0VJQ0FnSUQ1dXVhclRBEAE',
+        review_pagination_id: 'CAESB0VnTUlvUUU=',
+        author_link:
+            'https://www.google.com/maps/contrib/112269381269292217243?hl=uk',
+        author_title:
+            '\u041a\u0430\u0440\u0438\u043d\u0430 \u0421\u0435\u043b\u0435\u0437\u0435\u043d\u044c',
+        author_id: 112269381269292217243,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocJB3kbydOdO0LLoKQCQuBYspJO7Jh1-jZ7rLBISPKJc=s120-c-rp-mo-br100',
+        review_text:
+            '\u0420\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u044e \ud83d\udc4d\ud83c\udffb\ud83d\udc4d\ud83c\udffb\ud83d\udc4d\ud83c\udffb, \u0432\u0441\u0435 \u043a\u0440\u0443\u0442\u043e, \u0434\u0443\u0436\u0435 \u0437\u0430\u0434\u043e\u0432\u043e\u043b\u0435\u043d\u0430)',
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0422\u0430\u043a\u0456 \u0432\u0456\u0434\u0433\u0443\u043a\u0438 \u043d\u0430\u0434\u0438\u0445\u0430\u044e\u0442\u044c \u043d\u0430\u0441 \ud83d\ude4c\nLP-CRM - \u0446\u0435 \u043d\u0430\u0448\u0430 \u0433\u043e\u0440\u0434\u0456\u0441\u0442\u044c \u0456 \u0440\u0430\u0434\u0456\u0441\u0442\u044c. \u041c\u0438 \u0440\u0430\u0434\u0456, \u0449\u043e \u0412\u0438 \u0446\u0435 \u0432\u0456\u0434\u0447\u0443\u043b\u0438 \ud83d\ude0e',
+        owner_answer_timestamp: 1698759404,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 13:36:44',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUQ1dXVhclRBEAE!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID5uuarTA%7CCgwIpLPZqQYQ4MnA0wM%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698060708,
+        review_datetime_utc: '10/23/2023 11:31:48',
+        review_likes: 1,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
+        review_id: 'ChdDSUhNMG9nS0VJQ0FnSUQ1MnZuMjJnRRAB',
+        review_pagination_id: 'CAESB0VnTUlvZ0U=',
+        author_link:
+            'https://www.google.com/maps/contrib/112300716630092840020?hl=uk',
+        author_title:
+            '\u0420\u043e\u043c\u0430\u043d \u041a\u043b\u0438\u043c\u043a\u043e\u0432\u0438\u0447',
+        author_id: 112300716630092840020,
+        author_image:
+            'https://lh3.googleusercontent.com/a/ACg8ocK22FQQm0pFgw55-jATMVR2_5xwlZ5Gy1EyT9aiDvTq=s120-c-rp-mo-br100',
+        review_text: null,
+        review_img_url: null,
+        review_img_urls: null,
+        review_questions: null,
+        review_photo_ids: null,
+        owner_answer:
+            '\u0414\u044f\u043a\u0443\u0454\u043c\u043e \u0437\u0430 \u0432\u0438\u0431\u0456\u0440 LP-CRM \u0442\u0430 \u0442\u0430\u043a\u0443 \u043e\u0446\u0456\u043d\u043a\u0443 \u0443 \u0432\u0456\u0434\u0433\u0443\u043a\u0443 \ud83d\ude07\n\u0412\u0430\u0448 \u0443\u0441\u043f\u0456\u0445 \u2014 \u0446\u0435 \u043d\u0430\u0448 \u0443\u0441\u043f\u0456\u0445 \ud83e\udd1d',
+        owner_answer_timestamp: 1698761505,
+        owner_answer_timestamp_datetime_utc: '10/31/2023 14:11:45',
+        review_link:
+            'https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ1MnZuMjJnRRAB!2m1!1s0x0:0x669adebeb22dd8f0!3m1!1s2@1:CIHM0ogKEICAgID52vn22gE%7CCgsIoebYqQYQgPKiZQ%7C?hl=uk',
+        review_rating: 5,
+        review_timestamp: 1698050849,
+        review_datetime_utc: '10/23/2023 08:47:29',
+        review_likes: 0,
+        reviews_id: 7393466648896592112,
+        reviews_per_score_1: 3,
+        reviews_per_score_2: 0,
+        reviews_per_score_3: 2,
+        reviews_per_score_4: 17,
+        reviews_per_score_5: 459,
+    },
+    {
+        query: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        name: 'LP-CRM',
+        google_id: '0x40db21504699a15f:0x669adebeb22dd8f0',
+        place_id: 'ChIJX6GZRlAh20AR8Ngtsr7emmY',
+        location_link:
+            'https://www.google.com/maps/place/LP-CRM/@47.9097296,33.3934285,14z/data=!4m8!1m2!2m1!1sLP-CRM!3m4!1s0x40db21504699a15f:0x669adebeb22dd8f0!8m2!3d47.9097296!4d33.3934285',
+        reviews_link: null,
+        reviews: 481,
+        rating: 4.9,
         review_id: 'ChZDSUhNMG9nS0VJQ0FnSUNsaWNmeGJnEAE',
         review_pagination_id: 'CAESBkVnSUlUQQ==',
         author_link:
@@ -3113,18 +3530,23 @@ const reviewsData = [
     },
 ]
 
-const authorImages = reviewsData
-    .filter((review) => review.author_image)
-    .map((review) => review.author_image)
+const reviewsData = reviews
+    .filter(
+        (review) =>
+            review.author_image && review.author_title && review.review_text
+    )
+    .map((review) => {
+        return {
+            author_image: review.author_image,
+            author_title: decodeURIComponent(review.author_title),
+            review_text: decodeURIComponent(review.review_text),
+        }
+    })
 
-let authorImagesCounter = 0
+let reviewsDataCounter = 0
 
 const parallaxContainers = document.querySelectorAll('.images-container')
-const parallaxContainerHeader = document.querySelector(
-    '.images-container-header'
-)
-const parallaxContainerBody = document.querySelector('.images-container-body')
-const textHeader = document.querySelector('.images-container_text-header')
+
 const textDescr = document.querySelector('.images-container_text-descr')
 
 const screenHeight = window.innerHeight
@@ -3132,11 +3554,11 @@ const screenHeight = window.innerHeight
 window.dispatchEvent(new Event('scroll'))
 
 const changeContainerTranslateUpdated = (
-    container,
-    maxTranslatePx,
-    minTranslatePx,
-    K,
-    delayValuePx = 0
+    container, ///////////// Container with images
+    maxTranslatePx, //////// Max translateY value
+    minTranslatePx, //////// Min translateY  value
+    K, ///////////////////// Scroll pixels / K  = translateY container (translateY(Scroll pixels / K ))
+    delayValuePx = 0 /////// Pixels Value is delay
 ) => {
     const moveValue =
         (screenHeight - delayValuePx - container.getBoundingClientRect().y) / K
@@ -3167,12 +3589,33 @@ const changeContainerTranslateUpdated = (
 }
 
 const createImg = (size = 'small' || 'medium' || 'large' || 'xl') => {
+    const { author_image, review_text, author_title } =
+        reviewsData[reviewsDataCounter]
+
+    const parallaxItem = document.createElement('div')
     const img = document.createElement('img')
-    img.src = authorImages[authorImagesCounter]
-    img.alt = 'Parallax image'
-    img.classList.add('parallax-image', `image_${size}`)
-    authorImagesCounter += 1
-    return img
+    const comment = document.createElement('div')
+    const commentTitle = document.createElement('span')
+    const commentWrapper = document.createElement('div')
+
+    img.src = author_image
+    img.alt = author_title
+    comment.textContent = review_text
+    commentTitle.textContent = author_title
+
+    parallaxItem.appendChild(img)
+    parallaxItem.appendChild(commentWrapper)
+    commentWrapper.appendChild(comment)
+    comment.appendChild(commentTitle)
+
+    img.classList.add('parallax-image')
+    comment.classList.add('parallax-item_comment')
+    commentWrapper.classList.add('parallax-item_wrapper')
+    parallaxItem.classList.add('parallax-item', `item_${size}`)
+
+    reviewsDataCounter += 1
+
+    return parallaxItem
 }
 
 const addImgToContainer = (container, imgsSize = []) => {
@@ -3236,20 +3679,31 @@ addImgToContainer(parallaxContainers[7], [
     'small',
 ])
 
+const parallaxItems = document.querySelectorAll('.parallax-item')
+
+parallaxItems.forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+        item.classList.add('parallax-item_active')
+    })
+    item.addEventListener('mouseleave', () => {
+        item.classList.remove('parallax-item_active')
+    })
+})
+
 const parallaxHeaderBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[0], 96, -22, 8)
-    changeContainerTranslateUpdated(parallaxContainers[1], 172, -22, 4)
-    changeContainerTranslateUpdated(parallaxContainers[2], 172, -22, 4)
+    changeContainerTranslateUpdated(parallaxContainers[0], 96, -22, 8, 100)
+    changeContainerTranslateUpdated(parallaxContainers[1], 172, -22, 4, 100)
+    changeContainerTranslateUpdated(parallaxContainers[2], 172, -22, 4, 100)
 }
 
 const parallaxBodyBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[3], 125, 60, 8)
-    changeContainerTranslateUpdated(parallaxContainers[4], 180, 0, 6)
+    changeContainerTranslateUpdated(parallaxContainers[3], 125, 30, 6, 340)
+    changeContainerTranslateUpdated(parallaxContainers[4], 180, 0, 4, 340)
 }
 
 const parallaxFooterBlock = () => {
-    changeContainerTranslateUpdated(parallaxContainers[5], 0, -70, 11, 300)
-    changeContainerTranslateUpdated(parallaxContainers[7], 100, 0, 14, 300)
+    changeContainerTranslateUpdated(parallaxContainers[5], 0, -70, 11, 250)
+    changeContainerTranslateUpdated(parallaxContainers[7], 100, 0, 14, 250)
 }
 
 const observerTextDescrContainer = new IntersectionObserver(
@@ -3262,7 +3716,7 @@ const observerTextDescrContainer = new IntersectionObserver(
             }
         })
     },
-    { threshold: 0.5 }
+    { threshold: 1 }
 )
 
 parallaxHeaderBlock()

@@ -26,12 +26,57 @@
         left: 0%;
         transform: translateX(-50%);
         .parallax-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+        }
+        .parallax-item {
             position: absolute;
             transition: all 0.3s;
             border-radius: 65%;
-            &:hover {
+
+            &_wrapper {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                overflow: hidden;
+                width: 0px;
+                height: 100%;
+                transition: all 0.5s;
+            }
+            &_comment {
+                padding-top: 25px;
+                padding-right: 10px;
+                position: absolute;
+                right: 40px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                border-radius: 10px;
+                background-color: #fff;
+                transition: width 0.5s;
+
+                span {
+                    position: absolute;
+                    top: 4px;
+                    font-weight: 700;
+                }
+            }
+            &_active {
                 scale: 1.1;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+                z-index: 50;
+                .parallax-image {
+                    z-index: 50;
+                }
+                .parallax-item_wrapper {
+                    width: calc(230px + 50%);
+                    z-index: 40;
+                }
+                .parallax-item_comment {
+                    z-index: 30;
+                }
             }
         }
         &_text-header,
@@ -68,14 +113,14 @@
             color: #989898;
             opacity: 0;
             transform: translate(-50%, 30%);
-            transition: all 0.8s;
+            transition: all 0.4s;
             &_active {
                 opacity: 1;
                 transform: translate(-50%, 0);
             }
         }
         &_first {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 40px;
                     left: 80px;
@@ -99,7 +144,7 @@
             }
         }
         &_second {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 540px;
                     left: 0px;
@@ -121,7 +166,7 @@
             }
         }
         &_third {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 280px;
                     left: 40px;
@@ -149,7 +194,7 @@
             }
         }
         &_fourth {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 0px;
                     left: 190px;
@@ -177,7 +222,7 @@
             }
         }
         &_fifth {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 120px;
                     left: 10px;
@@ -209,7 +254,7 @@
             }
         }
         &_sixth {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 150px;
                     left: 220px;
@@ -229,7 +274,7 @@
             }
         }
         &_seventh {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 80px;
                     left: 410px;
@@ -251,13 +296,13 @@
                     left: 570px;
                 }
                 &:nth-child(6) {
-                    top: 280px;
-                    left: 1170px;
+                    top: 250px;
+                    left: 1190px;
                 }
             }
         }
         &_eighth {
-            .parallax-image {
+            .parallax-item {
                 &:nth-child(1) {
                     top: 350px;
                     left: 200px;
@@ -275,29 +320,66 @@
                     left: 1040px;
                 }
                 &:nth-child(5) {
-                    top: 510px;
-                    left: 1240px;
+                    top: 470px;
+                    left: 1260px;
                 }
             }
         }
     }
 }
 
-.image {
+.item {
     &_small {
         width: 90px;
         height: 90px;
+        .parallax-item_comment {
+            height: 90%;
+            padding-left: 55px;
+            width: 238px;
+            top: 5%;
+
+            span {
+                left: 55px;
+            }
+        }
     }
     &_medium {
         width: 115px;
         height: 115px;
+        .parallax-item_comment {
+            height: 80%;
+            width: 250px;
+            top: 10%;
+            padding-left: 65px;
+            span {
+                left: 65px;
+            }
+        }
     }
     &_large {
         width: 150px;
         height: 150px;
+        .parallax-item_comment {
+            height: 80%;
+            width: 265px;
+            top: 10%;
+            padding-left: 85px;
+            span {
+                left: 85px;
+            }
+        }
     }
     &_xl {
         width: 200px;
         height: 200px;
+        .parallax-item_comment {
+            height: 70%;
+            width: 288px;
+            top: 15%;
+            padding-left: 110px;
+            span {
+                left: 110px;
+            }
+        }
     }
 }
