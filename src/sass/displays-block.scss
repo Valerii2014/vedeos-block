@@ -12,7 +12,7 @@
         transform: translate(-50%, -50%);
         overflow: hidden;
         z-index: 1px;
-        background-image: url(../img/display.img) cover;
+        background-image: url(../img/display.img);
         border-radius: 8px 8px 2px 2px;
         cursor: pointer;
         &_forelock {
@@ -21,9 +21,11 @@
             position: absolute;
             top: -1px;
             left: 50%;
-            transform: translatex(-50%);
+            transform: translateX(-50%);
             background-color: #000;
             border-radius: 0 0 5px 5px;
+            cursor: initial;
+            z-index: 1;
         }
         iframe {
             width: 100%;
