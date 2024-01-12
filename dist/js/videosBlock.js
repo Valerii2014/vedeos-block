@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const openVideo = (
         event,
-        videoSrc = 'https://www.youtube.com/embed/bd-KpqIyLUk'
+        videoSrc = 'https://www.youtube.com/embed/bd-KpqIyLUk?autoplay=1'
     ) => {
         if (isMoveContainersActive) {
             clearInterval(moveContainersInterval)
@@ -122,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
         openVideoTimeout = setTimeout(() => {
             const iframe = document.createElement('iframe')
             iframe.src = videoSrc
-            iframe.setAttribute('autoplay', 'true')
             iframe.classList.add('video-watch_play')
             videoContainer.appendChild(iframe)
         }, 1000)

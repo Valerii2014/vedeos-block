@@ -3575,7 +3575,7 @@ const changeContainerTranslateUpdated = (
         } else {
             container.style.transform = `translate(-50%, ${parallaxValue}px)`
         }
-    } else if (parallaxValue > 0) {
+    } else if (parallaxValue > minTranslatePx) {
         container.style.transform = `translate(-50%, ${parallaxValue}px)`
     }
 }
@@ -3686,14 +3686,12 @@ addImgToContainer(parallaxContainers[7], [
 
 parallaxContainers.forEach((container, currentIndex) => {
     container.querySelectorAll('.parallax-item').forEach((item) => {
-        item.addEventListener('mouseenter', (e) => {
+        item.addEventListener('mouseenter', () => {
             parallaxContainers.forEach(
                 (container) => (container.style.zIndex = 0)
             )
-            if (e.target.classList.contains('parallax-item')) {
-                item.classList.add('parallax-item_active')
-                parallaxContainers[currentIndex].style.zIndex = 1
-            }
+            item.classList.add('parallax-item_active')
+            parallaxContainers[currentIndex].style.zIndex = 1
         })
         item.addEventListener('mouseleave', () => {
             item.classList.remove('parallax-item_active')
