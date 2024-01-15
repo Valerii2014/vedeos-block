@@ -28,7 +28,7 @@ const videoImagesDataCopy = JSON.parse(
 
 document.addEventListener('DOMContentLoaded', function () {
     const videoBlock = document.querySelector('.videos-block')
-    const imagesContainers = document.querySelectorAll('ul')
+    const imagesContainers = videoBlock.querySelectorAll('ul')
     const overflowDisplay = document.querySelector('.overflow')
     const videoContainer = document.querySelector('.video-watch')
     const imagesOffset = 5

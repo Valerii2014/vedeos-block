@@ -7,9 +7,145 @@
         <title>Videos-block</title>
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/style.min.css" />
+
+        <link rel="stylesheet" href="css/form.css" />
     </head>
     <body>
-        <section class="added-block"></section>
+        <section class="added-block">
+            <!-- <div class="select-country">
+                <div class="select-country__item" data-country="ua">
+                    Ukraine
+                </div>
+                <div class="select-country__item" data-country="ru">Russia</div>
+                <div class="select-country__item" data-country="by">
+                    Belarus
+                </div>
+                <div class="select-country__item" data-country="kz">
+                    Kazakhstan
+                </div>
+            </div>
+            <input type="text" name="phone" class="tel" value="" /> -->
+
+            <form action="create/create.php" id="form-create" method="POST">
+                <div class="wrap_input" style="max-width: 420px; width: 100%">
+                    <!-- <div class="tooltip" data-info="tooltip"> -->
+                    <label class="labelInput" for="userMail">
+                        <input
+                            id="userMail"
+                            autocomplete=""
+                            maxlength="141"
+                            name="email"
+                            placeholder="Ваш E-mail"
+                            class="userInp userInpEmail"
+                            type="text"
+                            required=""
+                            inputmode="text"
+                        />
+                        <div
+                            style="display: none"
+                            id="emailTrue"
+                            class="succes email_info"
+                        >
+                            E-mail вільний
+                        </div>
+                        <div
+                            style="display: none"
+                            id="emailFalse"
+                            class="error email_info"
+                        >
+                            E-mail зайнятий
+                        </div>
+                        <div style="display: none" class="tooltip">
+                            На E-mail буде відправлено логін і пароль для входу
+                            в CRM
+                        </div>
+                    </label>
+                    <!-- </div> -->
+
+                    <label class="labelInput" for="userTel">
+                        <input
+                            id="userTel"
+                            autocomplete=""
+                            name="phone"
+                            class="userInp userInpTel"
+                            type="text"
+                            required=""
+                            inputmode="text"
+                            placeholder="Ваш телефон"
+                        />
+                        <div
+                            style="display: none"
+                            id="emailTrue"
+                            class="succes email_info"
+                        >
+                            E-mail доступен
+                        </div>
+                        <div
+                            style="display: none"
+                            id="emailFalse"
+                            class="error email_info"
+                        >
+                            E-mail недоступен
+                        </div>
+                        <div style="display: none" class="tooltip">
+                            Використовується для відновлення пароля від вашої
+                            CRM
+                        </div>
+                        <button
+                            class="select-country ua"
+                            type="button"
+                            name="country"
+                            title="Вкажіть Ваш регіон"
+                        >
+                            <span class="select-country__triangle"></span>
+                        </button>
+                        <ul class="select-country__list" style="display: none">
+                            <li
+                                class="select-country__item"
+                                data-country="ua"
+                                data-multilang="modal_registr__form_city_ua"
+                            >
+                                Україна ( +380 )
+                            </li>
+                            <li
+                                class="select-country__item"
+                                data-country="kz"
+                                data-multilang="modal_registr__form_city_kz"
+                            >
+                                Казахстан ( +7 )
+                            </li>
+                        </ul>
+                    </label>
+
+                    <!-- <label class="labelInput" for="userName" style="display:none;">
+                    <input id="userName" value="" maxlength="50"  autocomplete name="name" placeholder="Ваше имя" class="userInp" type="text" >
+                </label> -->
+
+                    <button
+                        id="clickreg"
+                        type="submit"
+                        href="#rega"
+                        class="userButton"
+                        style="
+                            border: none;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-wrap: nowrap;
+                        "
+                    >
+                        Отримати
+                        <b style="margin: 0 5px; width: 50%">14 днів</b>
+                        безкоштовно +
+                        <!-- Отримати <b>14 днів</b> безкоштовно  -->
+                        <svg class="gift-svg" style="height: 30px; width: 50px">
+                            <use xlink:href="#gift"></use>
+                        </svg>
+                    </button>
+                    <!-- <span class="str text-center" style="justify-content:center;" data-multilang="modal_registr__reg_footer">На E-mail буде відправлено логін і пароль для входу в CRM </span> -->
+                </div>
+            </form>
+        </section>
         <section class="parallax-block">
             <div class="images-container-header parallax-group">
                 <div class="images-container images-container_first"></div>
@@ -106,25 +242,12 @@
                 <div class="displays-block_video-display_forelock"></div>
             </div>
         </section>
-        <section class="added-block">
-            <div class="select-country">
-                <div class="select-country__item" data-country="ua">
-                    Ukraine
-                </div>
-                <div class="select-country__item" data-country="ru">Russia</div>
-                <div class="select-country__item" data-country="by">
-                    Belarus
-                </div>
-                <div class="select-country__item" data-country="kz">
-                    Kazakhstan
-                </div>
-            </div>
-            <input type="text" name="phone" class="tel" value="" />
-        </section>
 
+        <script src="js/jquery.2.2.0.min.js"></script>
+        <script defer src="js/jquery.inputmask.min.js?v=5"></script>
+        <script src="js/newFormValidation.js"></script>
         <script src="js/reviewsBlock.js"></script>
         <script src="js/videosBlock.js"></script>
         <script src="js/displaysBlock.js"></script>
-        <script src="js/phoneMask.js"></script>
     </body>
 </html>
