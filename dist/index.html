@@ -11,12 +11,12 @@
     <body>
         <section class="added-block"></section>
         <section class="parallax-block">
-            <div class="images-container-header">
+            <div class="images-container-header parallax-group">
                 <div class="images-container images-container_first"></div>
                 <div class="images-container images-container_second"></div>
                 <div class="images-container images-container_third"></div>
             </div>
-            <div class="images-container-body">
+            <div class="images-container-body parallax-group">
                 <div class="images-container images-container_fourth"></div>
                 <div class="images-container images-container_fifth"></div>
                 <div class="images-container_text-header">
@@ -29,7 +29,7 @@
                     on the Mac App Store.
                 </div>
             </div>
-            <div class="images-container-footer">
+            <div class="images-container-footer parallax-group">
                 <div class="images-container images-container_sixth"></div>
                 <div class="images-container images-container_seventh"></div>
                 <div class="images-container images-container_eighth"></div>
@@ -106,10 +106,25 @@
                 <div class="displays-block_video-display_forelock"></div>
             </div>
         </section>
-        <section class="added-block"></section>
+        <section class="added-block">
+            <div class="select-country">
+                <div class="select-country__item" data-country="ua">
+                    Ukraine
+                </div>
+                <div class="select-country__item" data-country="ru">Russia</div>
+                <div class="select-country__item" data-country="by">
+                    Belarus
+                </div>
+                <div class="select-country__item" data-country="kz">
+                    Kazakhstan
+                </div>
+            </div>
+            <input type="text" name="phone" class="tel" value="" />
+        </section>
 
         <script src="js/reviewsBlock.js"></script>
         <script src="js/videosBlock.js"></script>
         <script src="js/displaysBlock.js"></script>
+        <script src="js/phoneMask.js"></script>
     </body>
 </html>

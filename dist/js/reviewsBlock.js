@@ -3546,6 +3546,7 @@ const reviewsData = reviews
 
 let reviewsDataCounter = 0
 
+const parallaxGroups = document.querySelectorAll('.parallax-group')
 const parallaxContainers = document.querySelectorAll('.images-container')
 const bodyContainer = document.querySelector('.images-container-body')
 const textDescr = document.querySelector('.images-container_text-descr')
@@ -3687,11 +3688,13 @@ addImgToContainer(parallaxContainers[7], [
 parallaxContainers.forEach((container, currentIndex) => {
     container.querySelectorAll('.parallax-item').forEach((item) => {
         item.addEventListener('mouseenter', () => {
+            parallaxGroups.forEach((container) => (container.style.zIndex = 0))
             parallaxContainers.forEach(
                 (container) => (container.style.zIndex = 0)
             )
             item.classList.add('parallax-item_active')
             parallaxContainers[currentIndex].style.zIndex = 1
+            parallaxContainers[currentIndex].parentElement.style.zIndex = 1
         })
         item.addEventListener('mouseleave', () => {
             item.classList.remove('parallax-item_active')

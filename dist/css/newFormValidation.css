@@ -1,0 +1,148 @@
+.labelInput {
+    position: relative;
+    margin: 3.5px 0;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    font-size:16px;
+    color:white;
+    
+}
+.labelInput input {
+   background-color: transparent;
+
+}
+.succes {
+    color: white!important;
+}
+.domen_info {
+    font-weight: 300;
+    font-family: Roboto-Medium;
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    right: 2%;
+    top: 19px;
+    text-align: left;
+}
+.error {
+    color: rgb(255, 71, 71)!important;
+    
+}
+.domenTag {
+    color: white;
+    font-size: 16px;
+    font-family: Roboto-Medium;
+    font-weight: 300;
+    position: absolute;
+    top: 19px;
+}
+.domenTagLeft {
+    left: 5%;
+}
+.domenTagRight {
+    right: 34%;
+}
+.userInp {
+    width: 90%;
+    padding: 15px 5%;
+    height: 25px;
+    opacity: 1;
+    font-family: Roboto-Medium;
+    font-weight: 300;
+    line-height: 1.2;
+    color: white;
+    font-size: 16px;
+    margin: 0 auto;
+    border: 0;
+    outline: 0;
+    background: #fff;
+}
+.wrap_input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    margin: 15px auto 0;
+    width: 479px;
+}
+.userInpDomain {
+    padding-left: 16%;
+    padding-right: 53%;
+    width:31%;
+}
+.userInpEmail {
+    width: 60%;
+    padding: 15px 35% 15px 5%;
+}
+.email_info {
+    font-weight: 700;
+    font-family: Roboto-Medium;
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    right: 2%;
+    top: 19px;
+    text-align: left;
+}
+.ready {
+    width:80%;
+    padding-left: 15%;
+}
+.userInp::-webkit-input-placeholder {
+    color: #707070
+}
+
+.userInp::-moz-placeholder {
+    color: #707070
+}
+
+.userInp:-ms-input-placeholder {
+    color: #707070
+}
+
+.userInp::-ms-input-placeholder {
+    color: #707070
+}
+
+.userInp::placeholder {
+    color: white
+}
+.select-country {
+    position: absolute;
+    background: 0 0;
+    width: 55px;
+    height: 38px;
+    top: 8px;
+    left: 2%;
+    border: 0;
+    padding-left: 50px;
+    display: none;
+}
+.active2 {
+    display: block !important;
+}
+.userButton {
+    width: 100%;
+    background-color: #fe0;
+    height: 60px;
+    color: #000;
+    margin-top: 40px;
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+}
