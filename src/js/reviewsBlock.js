@@ -3554,12 +3554,24 @@ const textHeader = document.querySelector('.images-container_text-header')
 
 window.dispatchEvent(new Event('scroll'))
 
+const imagesSizeData = [
+    ['small', 'medium', 'small', 'large', 'small'], /////////////////////////__images-container_first
+    ['xl', 'xl', 'xl', 'large'], ////////////////////////////////////////////__images-container_second
+    ['medium', 'large', 'medium', 'large', 'xl', 'large'], //////////////////__images-container_third
+    ['large', 'xl', 'xl', 'medium', 'medium', 'large'], /////////////////////__images-container_fourth
+    ['medium', 'small', 'medium', 'small', 'small', 'small', 'xl'], /////////__images-container_fifth
+    ['xl', 'large', 'large', 'large'], //////////////////////////////////////__images-container_sixth
+    ['small', 'small', 'small', 'medium', 'medium', 'small'], ///////////////__images-container_seventh
+    ['small', 'small', 'small', 'medium', 'small'], /////////////////////////__images-container_eighth
+]
+
+// Функция для задания значений паралакса контейнеру
 const changeContainerTranslateUpdated = (
-    container, ///////////// Container with images
-    maxTranslatePx, //////// Max translateY value in px
-    minTranslatePx, //////// Min translateY  value in px
-    K, ///////////////////// container.translateY = Scroll pixels / K
-    delayValuePx = 0 /////// Pixels Value is delay
+    container, ///////////// Контейнер, который будет двигаться
+    maxTranslatePx = 100, //////// Максимальное значение в px для transformX
+    minTranslatePx = 0, //////// Минимальное значение в px для transformX
+    K = 5, ///////////////////// Коэф-нт паралакса, чем больше, тем медленнее паралакс
+    delayValuePx = 0 /////// Задержка в пикселях, проходя которую паралакс начинает работать
 ) => {
     const moveValue =
         (window.innerHeight -
@@ -3635,73 +3647,6 @@ const textDescrHandler = (distancePx) => {
     }
 }
 
-addImgToContainer(parallaxContainers[0], [
-    'small',
-    'medium',
-    'small',
-    'large',
-    'small',
-])
-addImgToContainer(parallaxContainers[1], ['xl', 'xl', 'xl', 'large'])
-addImgToContainer(parallaxContainers[2], [
-    'medium',
-    'large',
-    'medium',
-    'large',
-    'xl',
-    'large',
-])
-addImgToContainer(parallaxContainers[3], [
-    'large',
-    'xl',
-    'xl',
-    'medium',
-    'medium',
-    'large',
-])
-addImgToContainer(parallaxContainers[4], [
-    'medium',
-    'small',
-    'medium',
-    'small',
-    'small',
-    'small',
-    'xl',
-])
-addImgToContainer(parallaxContainers[5], ['xl', 'large', 'large', 'large'])
-addImgToContainer(parallaxContainers[6], [
-    'small',
-    'small',
-    'small',
-    'medium',
-    'medium',
-    'small',
-])
-addImgToContainer(parallaxContainers[7], [
-    'small',
-    'small',
-    'small',
-    'medium',
-    'small',
-])
-
-parallaxContainers.forEach((container, currentIndex) => {
-    container.querySelectorAll('.parallax-item').forEach((item) => {
-        item.addEventListener('mouseenter', () => {
-            parallaxGroups.forEach((container) => (container.style.zIndex = 0))
-            parallaxContainers.forEach(
-                (container) => (container.style.zIndex = 0)
-            )
-            item.classList.add('parallax-item_active')
-            parallaxContainers[currentIndex].style.zIndex = 1
-            parallaxContainers[currentIndex].parentElement.style.zIndex = 1
-        })
-        item.addEventListener('mouseleave', () => {
-            item.classList.remove('parallax-item_active')
-        })
-    })
-})
-
 const parallaxHeaderBlock = () => {
     changeContainerTranslateUpdated(parallaxContainers[0], 96, -22, 10, 100)
     changeContainerTranslateUpdated(parallaxContainers[1], 172, -22, 5, 100)
@@ -3728,6 +3673,27 @@ const observerTextDescrContainer = new IntersectionObserver(
     },
     { threshold: 0.01 }
 )
+
+imagesSizeData.forEach((sizesForContainer, i) => {
+    addImgToContainer(parallaxContainers[i], sizesForContainer)
+})
+
+parallaxContainers.forEach((container, currentIndex) => {
+    container.querySelectorAll('.parallax-item').forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            parallaxGroups.forEach((container) => (container.style.zIndex = 0))
+            parallaxContainers.forEach(
+                (container) => (container.style.zIndex = 0)
+            )
+            item.classList.add('parallax-item_active')
+            parallaxContainers[currentIndex].style.zIndex = 1
+            parallaxContainers[currentIndex].parentElement.style.zIndex = 1
+        })
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('parallax-item_active')
+        })
+    })
+})
 
 parallaxHeaderBlock()
 parallaxBodyBlock()

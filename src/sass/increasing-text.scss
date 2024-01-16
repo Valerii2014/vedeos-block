@@ -1,0 +1,30 @@
+.increasing-text {
+    height: 350vh;
+    padding-top: 200px;
+
+    .title-wrapper {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    &_title {
+        position: absolute;
+        bottom: 50vh;
+        width: 860px;
+        font-size: 140px;
+        line-height: 118px;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity: 0.15;
+        line-height: 1.4705882353;
+        font-weight: 600;
+        letter-spacing: -0.022em;
+        color: #000;
+        font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+            sans-serif;
+    }
+}

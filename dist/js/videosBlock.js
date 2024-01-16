@@ -28,7 +28,7 @@ const videoImagesDataCopy = JSON.parse(
 
 document.addEventListener('DOMContentLoaded', function () {
     const videoBlock = document.querySelector('.videos-block')
-    const imagesContainers = videoBlock.querySelectorAll('ul')
+    const imagesContainers = videoBlock.querySelectorAll('[videos-container]')
     const overflowDisplay = document.querySelector('.overflow')
     const videoContainer = document.querySelector('.video-watch')
     const imagesOffset = 5
@@ -52,9 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let pixelsMoveFirst = moveSpeed,
         pixelsMoveSecond = moveSpeed * 1.3
 
-    imagesContainers.forEach(
-        (container) => (container.style.width = imagesContainerWidth + 'px')
-    )
+    imagesContainers[0].style.width = imagesContainerWidth + 'px'
+    imagesContainers[1].style.width = imagesContainerWidth + 'px'
 
     const observer = new IntersectionObserver(
         function (entries, observer) {
@@ -152,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const hoverElement = document.createElement('div')
             const itemButton = document.createElement('button')
             const playIcon = document.createElement('img')
-
             imageElement.classList.add('images-line_item')
             hoverElement.classList.add('image-line_item_hover')
             playIcon.src = './icons/play.svg'

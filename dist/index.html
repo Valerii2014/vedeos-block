@@ -7,28 +7,17 @@
         <title>Videos-block</title>
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/style.min.css" />
-
         <link rel="stylesheet" href="css/form.css" />
     </head>
     <body>
-        <section class="added-block">
-            <!-- <div class="select-country">
-                <div class="select-country__item" data-country="ua">
-                    Ukraine
-                </div>
-                <div class="select-country__item" data-country="ru">Russia</div>
-                <div class="select-country__item" data-country="by">
-                    Belarus
-                </div>
-                <div class="select-country__item" data-country="kz">
-                    Kazakhstan
-                </div>
+        <section class="increasing-text">
+            <div class="title-wrapper">
+                <h1 class="increasing-text_title">MacBook Air</h1>
             </div>
-            <input type="text" name="phone" class="tel" value="" /> -->
-
+        </section>
+        <section class="added-block">
             <form action="create/create.php" id="form-create" method="POST">
                 <div class="wrap_input" style="max-width: 420px; width: 100%">
-                    <!-- <div class="tooltip" data-info="tooltip"> -->
                     <label class="labelInput" for="userMail">
                         <input
                             id="userMail"
@@ -137,12 +126,18 @@
                         Отримати
                         <b style="margin: 0 5px; width: 50%">14 днів</b>
                         безкоштовно +
-                        <!-- Отримати <b>14 днів</b> безкоштовно  -->
-                        <svg class="gift-svg" style="height: 30px; width: 50px">
-                            <use xlink:href="#gift"></use>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 132 151"
+                            class="gift-svg"
+                            style="height: 30px; width: 50px"
+                        >
+                            <path
+                                d="M8.72503 52.4377L23.5724 47.0406C18.2191 42.6168 15.9121 35.5977 17.5684 28.9324C20.7923 15.8379 36.8227 10.8537 46.9379 19.7898L57.1714 28.8439L59.2121 15.307C61.2233 1.97657 76.6919 -4.45273 87.6056 3.51016C93.0477 7.4916 95.9462 14.3338 94.6744 21.2939L108.635 16.1918C115.526 13.685 123.157 17.2535 125.671 24.1252L131.734 40.6998C132.562 43.0002 131.379 45.5365 129.072 46.3623C128.125 46.6867 60.8389 71.1357 59.8333 71.4897C62.643 71.4897 123.985 71.4897 126.676 71.4897C129.131 71.4897 131.113 73.4656 131.113 75.9135V137.759C131.113 145.073 125.138 151.001 117.833 151.001H82.4001H64.6838H29.2511C21.9162 151.001 15.9713 145.043 15.9713 137.759V87.4154L12.5404 88.6541C10.263 89.4799 7.68985 88.3297 6.86171 85.9998L0.79852 69.3957C-1.71548 62.5535 1.8337 54.9445 8.72503 52.4377ZM86.8366 142.153H117.833C120.288 142.153 122.269 140.177 122.269 137.729V80.3373H86.8366V142.153ZM69.1203 142.153H77.9932V80.3373H69.1203V142.153ZM41.0522 26.4256C35.9059 21.8838 27.8019 24.4496 26.1752 31.0559C24.4302 38.134 31.2919 44.2389 38.1537 41.7615C43.9802 39.6381 46.7309 38.6648 52.5574 36.5414L41.0522 26.4256ZM82.341 10.6178C76.8102 6.57735 68.9724 9.85098 67.9372 16.6047L65.6598 31.7637C67.2865 31.1738 78.4665 27.1334 80.0636 26.5436C86.9549 24.0367 88.2267 14.8941 82.341 10.6178ZM80.2706 54.6791L121.885 39.5791L117.36 27.1334C116.531 24.833 113.988 23.6533 111.681 24.4791C107.008 26.1602 75.6567 37.5441 74.2074 38.075L80.2706 54.6791ZM63.619 60.725L71.93 57.7168L65.8669 41.1127L57.5559 44.1209L63.619 60.725ZM24.8147 137.759C24.8147 140.206 26.7963 142.182 29.2511 142.182H60.2473V80.3373H35.4918L24.7851 84.2303L24.8147 137.759ZM9.10952 66.3875L13.6643 78.8332L55.2785 63.7332L49.2153 47.1291L11.7418 60.725C9.46444 61.5803 8.28138 64.1166 9.10952 66.3875Z"
+                            />
                         </svg>
                     </button>
-                    <!-- <span class="str text-center" style="justify-content:center;" data-multilang="modal_registr__reg_footer">На E-mail буде відправлено логін і пароль для входу в CRM </span> -->
                 </div>
             </form>
         </section>
@@ -172,8 +167,8 @@
             </div>
         </section>
         <section class="videos-block">
-            <ul class="images-line"></ul>
-            <ul class="images-line"></ul>
+            <ul class="images-line" videos-container></ul>
+            <ul class="images-line" videos-container></ul>
             <div class="button-container">
                 <button class="videos-block_button">
                     See full lineup
@@ -242,10 +237,12 @@
                 <div class="displays-block_video-display_forelock"></div>
             </div>
         </section>
+        <div class="added-block"></div>
 
-        <script src="js/jquery.2.2.0.min.js"></script>
-        <script defer src="js/jquery.inputmask.min.js?v=5"></script>
-        <script src="js/newFormValidation.js"></script>
+        <script src="js/jquery/jquery.2.2.0.min.js"></script>
+        <script defer src="js/jquery/jquery.inputmask.min.js?v=5"></script>
+        <script src="js/jquery/newFormValidation.js"></script>
+        <script src="js/increasingText.js"></script>
         <script src="js/reviewsBlock.js"></script>
         <script src="js/videosBlock.js"></script>
         <script src="js/displaysBlock.js"></script>
