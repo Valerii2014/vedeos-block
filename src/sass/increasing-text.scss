@@ -1,5 +1,5 @@
 .increasing-text {
-    height: 350vh;
+    height: 330vh;
     padding-top: 200px;
 
     .title-wrapper {
@@ -11,6 +11,8 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        // background-color: #fff;
+        z-index: 100;
     }
     &_title {
         position: absolute;
